@@ -1,11 +1,11 @@
-
+Here is 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 25 Real Money Apps | Fast Download</title>
+    <title>Yono Games Platform | 25 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -105,7 +105,7 @@
             display: block;
         }
 
-        /* NEW HEADER DESIGN - No tags, only Yono Website Platform + 5 slow lightning bolts */
+        /* NEW HEADER - 5 lightning bolts + 12-color animated title */
         header {
             background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
             background-size: 300% 300%;
@@ -117,35 +117,12 @@
             overflow: hidden;
         }
 
-        /* 4-color slow moving gradient animation */
-        @keyframes slowGradient {
-            0% { background-position: 0% 50%; }
-            25% { background-position: 50% 50%; }
-            50% { background-position: 100% 50%; }
-            75% { background-position: 50% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .platform-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, #ffcc00, #ff6699, #66ffcc, #ff9933);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: slowGradient 6s ease infinite;
-            text-shadow: 0 0 20px rgba(0,0,0,0.3);
-            margin-bottom: 15px;
-        }
-
-        /* 5 lightning emojis with slow pulse and movement */
+        /* 5 lightning bolts - slow movement */
         .lightning-row {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 10px;
+            margin-bottom: 15px;
         }
         .lightning {
             font-size: 2rem;
@@ -163,6 +140,35 @@
             0% { transform: scale(1) translateY(0px); opacity: 0.7; text-shadow: 0 0 2px gold; }
             50% { transform: scale(1.25) translateY(-5px); opacity: 1; text-shadow: 0 0 15px gold, 0 0 5px orange; }
             100% { transform: scale(1) translateY(0px); opacity: 0.7; text-shadow: 0 0 2px gold; }
+        }
+
+        /* 12-color full HD animated title */
+        @keyframes rainbow12 {
+            0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+            8% { color: #ff7f00; text-shadow: 0 0 10px #ff7f00; }
+            16% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+            25% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+            33% { color: #0000ff; text-shadow: 0 0 10px #0000ff; }
+            41% { color: #4b0082; text-shadow: 0 0 10px #4b0082; }
+            50% { color: #9400d3; text-shadow: 0 0 10px #9400d3; }
+            58% { color: #ff1493; text-shadow: 0 0 10px #ff1493; }
+            66% { color: #00ced1; text-shadow: 0 0 10px #00ced1; }
+            75% { color: #ff4500; text-shadow: 0 0 10px #ff4500; }
+            83% { color: #adff2f; text-shadow: 0 0 10px #adff2f; }
+            91% { color: #ff69b4; text-shadow: 0 0 10px #ff69b4; }
+            100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+        }
+
+        .platform-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            animation: rainbow12 4s ease infinite;
+            display: inline-block;
+            padding: 0 20px;
+            border-radius: 60px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(4px);
         }
 
         .container {
@@ -587,21 +593,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             z-index: 300;
             justify-content: center;
             align-items: center;
         }
         .info-modal-content {
             background: white;
-            max-width: 450px;
-            width: 85%;
+            max-width: 500px;
+            width: 90%;
             border-radius: 36px;
             padding: 24px 20px;
             text-align: left;
             animation: fadeInUp 0.3s ease;
             box-shadow: 0 30px 40px rgba(0,0,0,0.3);
             border: 1px solid #ffcf8a;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .info-modal-content h4 {
             font-size: 1.5rem;
@@ -651,7 +659,7 @@
         @media (max-width: 640px) {
             .menu-btn { font-size: 1rem; padding: 4px 12px; }
             .platform-title { font-size: 1.6rem; }
-            .lightning { font-size: 1.5rem; }
+            .lightning { font-size: 1.3rem; gap: 12px; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
@@ -693,9 +701,8 @@
         </div>
     </div>
 
-    <!-- NEW HEADER: Only Yono Website Platform + 5 slow lightning bolts -->
+    <!-- NEW HEADER: 5 lightning bolts + 12-color animated title -->
     <header>
-        <div class="platform-title">Yono Website Platform</div>
         <div class="lightning-row">
             <span class="lightning">⚡</span>
             <span class="lightning">⚡</span>
@@ -703,6 +710,7 @@
             <span class="lightning">⚡</span>
             <span class="lightning">⚡</span>
         </div>
+        <div class="platform-title">Yono Games Platform</div>
     </header>
 
     <div class="container" id="mainContainer">
@@ -711,11 +719,11 @@
     </div>
 
     <footer>
-        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads
+        © 2025 Yono Games Platform — Play responsibly. 18+ only. | Official APK Downloads
     </footer>
 
     <script>
-        // ---------- 25 APPS DATA (same as before) ----------
+        // ---------- 25 APPS DATA ----------
         const appsData = [
             { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -992,7 +1000,7 @@
             goToMainGrid();
         }
 
-        // ------------------ Custom Modal Logic ------------------
+        // ------------------ Custom Modal Logic with Enhanced Content ------------------
         const customModal = document.getElementById('customInfoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -1020,7 +1028,7 @@
             }
         });
 
-        // ------------------ Dropdown Menu Logic ------------------
+        // ------------------ Dropdown Menu Logic with ENHANCED Content ------------------
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
         const menuHome = document.getElementById('menuHome');
@@ -1044,48 +1052,84 @@
             resetToMainGrid();
         });
 
+        // ENHANCED Privacy Policy - Best Information
         menuPrivacy.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('🔒 Privacy Policy', `
-                <ul>
-                    <li>No personal data is collected directly by Yono Games Hub.</li>
-                    <li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li>
-                    <li>We do not store or have access to your UPI ID, bank details, or password.</li>
-                    <li>This site does not use cookies or tracking scripts.</li>
-                    <li>We link to external APK download pages – their privacy policies apply.</li>
-                    <li>Our platform is only for users 18 years or older.</li>
-                    <li>For privacy concerns: support@yonogamesnew</li>
-                </ul>
+                <p><strong>Yono Games Platform – Privacy Policy</strong></p>
+                <p><strong>1. Information We Collect</strong><br>
+                - We do NOT collect any personal data directly.<br>
+                - Third-party apps may collect your mobile number, name, or transaction details during registration and withdrawal.<br>
+                - We never store your UPI ID, bank details, or password.</p>
+                <p><strong>2. How We Use Your Information</strong><br>
+                - Only to provide referral links and display accurate app offers.<br>
+                - No data is sold, shared, or rented to any third party.</p>
+                <p><strong>3. Cookies & Tracking</strong><br>
+                - This website does not use cookies or any tracking scripts.</p>
+                <p><strong>4. Third-Party Links</strong><br>
+                - We link to external APK download pages. Their privacy policies apply separately.</p>
+                <p><strong>5. Children's Privacy</strong><br>
+                - Our platform is strictly for users aged 18 years or older.</p>
+                <p><strong>6. Data Security</strong><br>
+                - We use SSL encryption and secure servers to protect any minimal data exchanged.</p>
+                <p><strong>7. Your Rights</strong><br>
+                - You can ask us to remove any reference to you by contacting support@yonogamesplatform.com</p>
+                <p><strong>8. Changes to This Policy</strong><br>
+                - Updates will be posted on this page. Last updated: June 2025.</p>
             `);
         });
 
+        // ENHANCED Disclaimer - Best Information
         menuDisclaimer.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('⚠️ Disclaimer', `
-                <ul>
-                    <li>Informational purposes only – we do not provide financial or investment advice.</li>
-                    <li>All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.</li>
-                    <li>We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</li>
-                    <li>You must be 18 years or older to use any real‑money gaming app. Comply with local laws.</li>
-                    <li>Playing real‑money games involves risk – you may lose money. Never play with money you cannot afford to lose.</li>
-                    <li>We provide the platform "as is" without warranties. Not liable for damages from third‑party apps.</li>
-                    <li>If you have a gambling problem, seek help from professional organizations like BeGambleAware.</li>
-                </ul>
+                <p><strong>Yono Games Platform – Disclaimer</strong></p>
+                <p><strong>1. No Financial Advice</strong><br>
+                - The information provided is for general informational purposes only. We do not offer financial or investment advice.</p>
+                <p><strong>2. Third-Party Responsibility</strong><br>
+                - All games, apps, and bonuses are offered by independent third-party providers. We are not the developer or operator of any game.<br>
+                - We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</p>
+                <p><strong>3. Age Restriction</strong><br>
+                - You must be 18 years or older to use any real-money gaming app. It is your responsibility to comply with local laws.</p>
+                <p><strong>4. Financial Risk</strong><br>
+                - Playing real-money games involves financial risk. You may lose money. Never play with money you cannot afford to lose.</p>
+                <p><strong>5. No Warranty</strong><br>
+                - We provide the platform "as is" without any warranties. We are not liable for any damages arising from the use of third-party apps.</p>
+                <p><strong>6. Responsible Gaming</strong><br>
+                - If you feel you have a gambling problem, please seek help from professional organizations like BeGambleAware or Gamblers Anonymous.</p>
+                <p><strong>7. External Links</strong><br>
+                - We are not responsible for the content, security, or availability of external APK download links.</p>
+                <p><strong>8. Affiliate Disclosure</strong><br>
+                - Some links on this site may be affiliate links. We may earn a small commission at no extra cost to you.</p>
             `);
         });
 
+        // ENHANCED About Us - Best Information
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            showInfoModal('⭐ Trusted Gaming Platform', `
-                <p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p>
-                <p><strong>Why choose us?</strong><br>
-                ✅ 100% verified signup bonuses<br>
-                ✅ Fastest withdrawal updates (₹100 min)<br>
+            showInfoModal('⭐ About Us – Yono Games Platform', `
+                <p><strong>Who We Are</strong><br>
+                Yono Games Platform is the #1 trusted destination for real-money gaming enthusiasts. We bring together the best earning apps in one place.</p>
+                <p><strong>Our Mission</strong><br>
+                To provide 100% verified, transparent, and up-to-date information about signup bonuses, withdrawal limits, and game features.</p>
+                <p><strong>What We Offer</strong><br>
+                ✅ 25+ curated real-money gaming apps<br>
+                ✅ Daily updated signup bonus offers<br>
+                ✅ Clear minimum withdrawal information (₹100)<br>
+                ✅ Direct, safe APK download links<br>
                 ✅ Zero data storage – your privacy is our priority<br>
-                ✅ 24/7 customer support<br>
-                ✅ Curated list of 25+ top earning apps</p>
-                <p><strong>Contact:</strong> support@yonogamesnew<br>
-                <strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
+                ✅ 24/7 customer support</p>
+                <p><strong>Why Trust Us</strong><br>
+                - We manually test every app before listing.<br>
+                - If an app stops paying or changes terms unfairly, we remove it immediately.<br>
+                - Completely transparent about affiliate relationships (we may earn a commission).<br>
+                - No hidden fees or misleading information.</p>
+                <p><strong>Contact Information</strong><br>
+                📧 Email: support@yonogamesplatform.com<br>
+                📱 Telegram: @YonoGamesSupport<br>
+                ⏱️ Response time: Within 24 hours</p>
+                <p><strong>Our Commitment</strong><br>
+                Your earnings and safety are our top priority. We continuously update our list to ensure you only get the best and most reliable apps.</p>
             `);
         });
 
