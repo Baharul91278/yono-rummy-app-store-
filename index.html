@@ -1,6 +1,4 @@
-Here is the final HTML with the DOWNLOAD button placed at the top of the download page (right after the app name and image), and all other tags (stats, description, extra benefits, info cards, how-to steps, FAQ, and “Other Yono Apps”) moved to the bottom – exactly as you requested.
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,90 +105,64 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
             display: block;
         }
 
+        /* NEW HEADER DESIGN - No tags, only Yono Website Platform + 5 slow lightning bolts */
         header {
-            background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
+            background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
+            background-size: 300% 300%;
             color: white;
-            padding: 24px 16px;
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 1.8rem;
+        /* 4-color slow moving gradient animation */
+        @keyframes slowGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .platform-title {
+            font-size: 2.5rem;
             font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffcc00, #ff6699, #66ffcc, #ff9933);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: slowGradient 6s ease infinite;
+            text-shadow: 0 0 20px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+        }
+
+        /* 5 lightning emojis with slow pulse and movement */
+        .lightning-row {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
         }
-
-        .led-star {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0,0,0,0.3);
-            padding: 5px 16px;
-            border-radius: 60px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            animation: ledGlow 1.2s infinite alternate;
-            box-shadow: 0 0 5px #ffcf8a;
-        }
-        .led-star .star {
-            font-size: 1.1rem;
-            filter: drop-shadow(0 0 3px gold);
-            animation: starPulse 0.8s infinite alternate;
-        }
-        @keyframes ledGlow {
-            0% {
-                text-shadow: 0 0 2px #fff, 0 0 4px #ffcf8a;
-                box-shadow: 0 0 2px #ffcf8a;
-                background: rgba(255,207,138,0.2);
-            }
-            100% {
-                text-shadow: 0 0 6px #fff, 0 0 12px #ffcf8a;
-                box-shadow: 0 0 10px #ffcf8a;
-                background: rgba(255,207,138,0.4);
-            }
-        }
-        @keyframes starPulse {
-            from { transform: scale(1); opacity: 0.8; }
-            to { transform: scale(1.2); opacity: 1; text-shadow: 0 0 8px gold; }
-        }
-
-        .best-badge {
+        .lightning {
+            font-size: 2rem;
             display: inline-block;
-            background: linear-gradient(135deg, #ff3366, #ff0066);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 8px 20px;
-            border-radius: 60px;
-            margin-top: 12px;
-            letter-spacing: 0.5px;
-            animation: ledPinkRed 1.2s infinite alternate;
-            box-shadow: 0 0 8px #ff0066;
-            text-shadow: 0 0 4px rgba(255,255,255,0.5);
+            animation: slowPulseMove 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255,255,0,0.6));
         }
-        @keyframes ledPinkRed {
-            0% {
-                background: linear-gradient(135deg, #ff3366, #ff0066);
-                box-shadow: 0 0 4px #ff0066, 0 0 8px #ff3366;
-                text-shadow: 0 0 2px white;
-            }
-            100% {
-                background: linear-gradient(135deg, #ff6699, #ff3399);
-                box-shadow: 0 0 12px #ff0066, 0 0 20px #ff3366;
-                text-shadow: 0 0 6px white;
-            }
-        }
+        .lightning:nth-child(1) { animation-delay: 0s; }
+        .lightning:nth-child(2) { animation-delay: 0.3s; }
+        .lightning:nth-child(3) { animation-delay: 0.6s; }
+        .lightning:nth-child(4) { animation-delay: 0.9s; }
+        .lightning:nth-child(5) { animation-delay: 1.2s; }
 
-        .subhead {
-            font-size: 0.85rem;
-            opacity: 0.95;
-            margin-top: 8px;
-            font-weight: 500;
+        @keyframes slowPulseMove {
+            0% { transform: scale(1) translateY(0px); opacity: 0.7; text-shadow: 0 0 2px gold; }
+            50% { transform: scale(1.25) translateY(-5px); opacity: 1; text-shadow: 0 0 15px gold, 0 0 5px orange; }
+            100% { transform: scale(1) translateY(0px); opacity: 0.7; text-shadow: 0 0 2px gold; }
         }
 
         .container {
@@ -482,7 +454,6 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
             padding-left: 12px;
         }
 
-        /* DOWNLOAD BUTTON - at the TOP (right after image) */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -679,7 +650,8 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
         }
         @media (max-width: 640px) {
             .menu-btn { font-size: 1rem; padding: 4px 12px; }
-            header h1 { font-size: 1.5rem; }
+            .platform-title { font-size: 1.6rem; }
+            .lightning { font-size: 1.5rem; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
@@ -721,15 +693,16 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
         </div>
     </div>
 
+    <!-- NEW HEADER: Only Yono Website Platform + 5 slow lightning bolts -->
     <header>
-        <h1>
-            🎮 Yono Games Hub
-            <span class="led-star">
-                <span class="star">⭐</span> 25 Real Money Apps
-            </span>
-        </h1>
-        <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
-        <div class="best-badge">⭐ Best Gaming Platform – Trusted by 1M+ Users ⭐</div>
+        <div class="platform-title">Yono Website Platform</div>
+        <div class="lightning-row">
+            <span class="lightning">⚡</span>
+            <span class="lightning">⚡</span>
+            <span class="lightning">⚡</span>
+            <span class="lightning">⚡</span>
+            <span class="lightning">⚡</span>
+        </div>
     </header>
 
     <div class="container" id="mainContainer">
@@ -742,7 +715,7 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
     </footer>
 
     <script>
-        // ---------- 25 APPS DATA ----------
+        // ---------- 25 APPS DATA (same as before) ----------
         const appsData = [
             { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -806,7 +779,6 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
         }
 
         function getFAQ(appName, bonusAmount) {
-            const bonusNumber = bonusAmount.replace('₹', '');
             return `
                 <div class="faq-item">
                     <div class="faq-question">Q.1 What is the ${appName} APK?</div>
@@ -908,7 +880,6 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
                 `;
             });
             
-            // DOWNLOAD BUTTON placed at the TOP (right after image and stats)
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -926,10 +897,8 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
                             <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
-                        <!-- DOWNLOAD BUTTON - AT THE TOP -->
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
                         
-                        <!-- All other tags come AFTER the download button -->
                         <div class="app-description">
                             ${description}<br><br>
                             <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
@@ -996,12 +965,6 @@ Here is the final HTML with the DOWNLOAD button placed at the top of the downloa
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                const headerElem = document.querySelector('header');
-                if (headerElem) {
-                    headerElem.style.transition = '0.2s';
-                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
-                }
             }
             currentSelectedIndex = null;
         }
