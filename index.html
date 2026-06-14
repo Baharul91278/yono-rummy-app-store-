@@ -1,4 +1,6 @@
+already included.
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -503,8 +505,6 @@
             box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
-        /* BACK TO HOME button removed from download page - no styles needed */
-
         .other-apps-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -936,11 +936,9 @@
                         </div>
 
                         <div class="faq-section">
-                            <h4>❓ FREQUENTLY ASKED QUESTIONS</h4>
+                            <h4>FREQUENTLY ASKED QUESTIONS</h4>
                             ${faqHtml}
                         </div>
-                        
-                        <!-- Back to Home button removed -->
                     </div>
                     
                     <div class="other-apps-title">Other Yono Apps</div>
@@ -962,8 +960,6 @@
                     e.stopPropagation();
                 });
             });
-            
-            // No backHomeBtn event listener needed
             
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
