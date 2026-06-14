@@ -1,4 +1,4 @@
-Here is the final HTML with all 25 apps displayed correctly. The main grid shows each app with its name, image, stats (Rating, Size, Votes, Bonus), withdrawal note, and a DOWNLOAD button. The download pages have been simplified to only show the DOWNLOAD button (no extra info tags, no FAQ, no extra benefits), as you requested.
+Here is the final HTML with the download button placed at the bottom of the download page, right above the “Other Yono Apps” section. All other tags (stats, description, extra benefits, how-to steps, FAQ, info cards) remain above the download button, as you requested.
 
 ```html
 <!DOCTYPE html>
@@ -319,7 +319,7 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
         .download-page {
             background: white;
             border-radius: 44px;
-            padding: 24px 20px;
+            padding: 28px 24px;
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
             margin-bottom: 30px;
             border: 1px solid #ffe1b3;
@@ -389,6 +389,100 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
             letter-spacing: 0.5px;
         }
 
+        .app-description {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 32px;
+            text-align: left;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #2d3e2b;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .info-card {
+            background: #f0f9f0;
+            border-radius: 28px;
+            padding: 12px 18px;
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            border: 1px solid #d4e6d4;
+        }
+        .info-card .info-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #6c7a5a;
+            letter-spacing: 0.5px;
+        }
+        .info-card .info-value {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #1e562a;
+            margin-top: 4px;
+        }
+
+        .howto-steps {
+            background: #f0f9f0;
+            border-radius: 32px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .howto-steps h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #1e562a;
+        }
+        .howto-steps ol {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .howto-steps li {
+            margin: 10px 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .faq-section {
+            background: #fef4e6;
+            border-radius: 32px;
+            padding: 20px 22px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .faq-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #1e562a;
+            border-left: 4px solid #ff8c00;
+            padding-left: 12px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: 800;
+            color: #b45900;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        .faq-answer {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #2d3e2b;
+            padding-left: 12px;
+        }
+
+        /* DOWNLOAD BUTTON - at bottom of app-highlight */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -397,7 +491,7 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
             border-radius: 60px;
             display: block;
             width: 100%;
-            margin: 16px 0;
+            margin: 20px 0 16px 0;
             box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
             text-decoration: none;
             color: white;
@@ -415,7 +509,7 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
 
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
-            margin-top: 20px;
+            margin-top: 10px;
             display: inline-block;
             width: auto;
             padding: 12px 36px;
@@ -598,6 +692,8 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
             .small-download { font-size: 0.75rem; padding: 6px 0; }
             .dropdown { right: 0; min-width: 160px; }
             .dropdown a { padding: 10px 16px; font-size: 0.8rem; }
+            .info-grid { gap: 10px; }
+            .info-card { min-width: 120px; }
         }
     </style>
 </head>
@@ -702,6 +798,48 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
             return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
         }
 
+        function getDescription(appName, category, bonusAmount) {
+            if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
+            if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
+            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
+            return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
+        }
+
+        function getFAQ(appName, bonusAmount) {
+            const bonusNumber = bonusAmount.replace('₹', '');
+            return `
+                <div class="faq-item">
+                    <div class="faq-question">Q.1 What is the ${appName} APK?</div>
+                    <div class="faq-answer">The ${appName} APK is an excellent application that offers users a sign-up bonus of ${bonusAmount} when they join. This game includes a fantastic bonus program. Additionally, ${appName} is a popular real-money gaming app with a minimum withdrawal amount of ₹100 and instant UPI payouts.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q.2 How do I sign up for the ${appName} APK?</div>
+                    <div class="faq-answer">To sign up, click on the DOWNLOAD button, install the APK, open the app, register with your mobile number & verify OTP. After completing these steps, you will receive a sign-up bonus of ${bonusAmount}.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q.3 How many games are available in the ${appName} app?</div>
+                    <div class="faq-answer">The ${appName} app offers support for 20+ different types of games including Rummy, Teen Patti, Slots, Dragon vs Tiger, Andar Bahar, and many more.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q.4 What are some of the best features of the ${appName} APK?</div>
+                    <div class="faq-answer">Features include: ${bonusAmount} free signup bonus, 20+ gaming options, earn up to ₹150 for inviting friends, instant UPI withdrawals, 24/7 customer support, and daily login rewards.</div>
+                </div>
+            `;
+        }
+
+        function getInfoTags(appName, bonusAmount) {
+            return `
+                <div class="info-grid">
+                    <div class="info-card"><div class="info-title">🎁 BONUS NAME</div><div class="info-value">${bonusAmount} Welcome Bonus</div></div>
+                    <div class="info-card"><div class="info-title">📲 INSTALL INFO</div><div class="info-value">APK Size: ~10-15 MB</div></div>
+                    <div class="info-card"><div class="info-title">🔒 SAFETY & SECURE</div><div class="info-value">SSL Encrypted | KYC Verified</div></div>
+                    <div class="info-card"><div class="info-title">⏱️ WITHDRAWAL TIME</div><div class="info-value">Instant to 24 Hours</div></div>
+                    <div class="info-card"><div class="info-title">🎯 DAILY LOGIN REWARD</div><div class="info-value">Up to ₹50 Daily</div></div>
+                    <div class="info-card"><div class="info-title">💸 MIN WITHDRAWAL</div><div class="info-value">₹100 (UPI/Bank)</div></div>
+                </div>
+            `;
+        }
+
         // ------------------ Main Grid & Download Logic ------------------
         let currentSelectedIndex = null;
 
@@ -746,6 +884,9 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
             const stats = getAppStats(selectedApp.name);
+            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            const faqHtml = getFAQ(selectedApp.name, selectedApp.bonus);
+            const infoTagsHtml = getInfoTags(selectedApp.name, selectedApp.bonus);
             
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -782,6 +923,29 @@ Here is the final HTML with all 25 apps displayed correctly. The main grid shows
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
                             <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                        </div>
+                        
+                        <div class="app-description">
+                            ${description}<br><br>
+                            <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
+                        </div>
+
+                        ${infoTagsHtml}
+
+                        <div class="howto-steps">
+                            <h4>📱 How To Download ${selectedApp.name}?</h4>
+                            <ol>
+                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
+                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
+                                <li>Open the APK file and install the app.</li>
+                                <li>Register with mobile number & verify OTP.</li>
+                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                            </ol>
+                        </div>
+
+                        <div class="faq-section">
+                            <h4>❓ FREQUENTLY ASKED QUESTIONS</h4>
+                            ${faqHtml}
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
