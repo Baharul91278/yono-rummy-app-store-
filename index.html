@@ -1,5 +1,10 @@
-Here 
-```Here is the final HTML with a black tag added around the “Yono Games Platform” title – a dark rounded background that makes the animated rainbow text stand out beautifully. All other features remain unchanged.
+Here
+Here is the final HTML with:
+
+· The title “Yono Games Platform” inside a black tag with a strong neon light/glow effect underneath (cyan/blue glow).
+· All download buttons (main grid, download page main button, and “Other Yono Apps” small buttons) changed to green gradients.
+· The “Back to Home” button remains orange/red as before.
+· All other features (25 apps, FAQ, info cards, modals, lightning bolts, etc.) stay unchanged.
 
 ```html
 <!DOCTYPE html>
@@ -108,7 +113,7 @@ Here
             display: block;
         }
 
-        /* HEADER with 5 colored lightning bolts and split animated title + BLACK TAG */
+        /* HEADER with 5 colored lightning bolts and split animated title + BLACK TAG + LIGHT UNDER TITLE */
         header {
             background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
             background-size: 300% 300%;
@@ -162,6 +167,25 @@ Here
             border-radius: 80px;
             box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
             margin-top: 10px;
+            /* Light under the title (neon glow) */
+            position: relative;
+        }
+        .title-black-tag::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #0088ff, #00ffff);
+            border-radius: 4px;
+            filter: blur(6px);
+            animation: lightPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes lightPulse {
+            0% { opacity: 0.5; width: 60%; left: 20%; }
+            50% { opacity: 1; width: 80%; left: 10%; box-shadow: 0 0 12px cyan; }
+            100% { opacity: 0.5; width: 60%; left: 20%; }
         }
 
         /* Split title animations - each word has its own 5-color slow gradient */
@@ -298,26 +322,27 @@ Here
             margin-top: 6px;
         }
 
+        /* ALL DOWNLOAD BUTTONS GREEN */
         .download-btn {
             display: block;
             width: 100%;
             text-align: center;
             margin-top: 16px;
             padding: 12px 0;
-            background: linear-gradient(95deg, #e67e22, #f39c12);
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
             color: white;
             text-decoration: none;
             border-radius: 60px;
             font-weight: 800;
             font-size: 0.9rem;
             transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 6px 14px rgba(39, 174, 96, 0.25);
             cursor: pointer;
             border: none;
         }
 
         .download-btn:hover {
-            background: linear-gradient(95deg, #d35400, #e67e22);
+            background: linear-gradient(95deg, #1e8449, #27ae60);
             transform: scale(0.98);
         }
 
@@ -487,8 +512,9 @@ Here
             padding-left: 12px;
         }
 
+        /* GREEN MAIN DOWNLOAD BUTTON */
         .final-download-btn {
-            background: linear-gradient(95deg, #ff4081, #f50057);
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
             padding: 14px 20px;
             font-size: 1rem;
             font-weight: 800;
@@ -496,7 +522,7 @@ Here
             display: block;
             width: 100%;
             margin: 20px 0 16px 0;
-            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
+            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
@@ -507,10 +533,11 @@ Here
         }
         .final-download-btn:hover {
             transform: scale(0.98);
-            background: linear-gradient(95deg, #e91e63, #c51162);
-            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
+            background: linear-gradient(95deg, #1e8449, #27ae60);
+            box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
         }
 
+        /* BACK TO HOME button remains orange/red */
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 20px;
@@ -573,8 +600,9 @@ Here
             display: inline-block;
         }
 
+        /* GREEN SMALL DOWNLOAD BUTTON */
         .small-download {
-            background: linear-gradient(95deg, #ff4081, #f50057);
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
             font-size: 0.8rem;
             padding: 8px 0;
             margin-top: 12px;
@@ -590,7 +618,7 @@ Here
             transition: 0.2s;
         }
         .small-download:hover {
-            background: linear-gradient(95deg, #e91e63, #c51162);
+            background: linear-gradient(95deg, #1e8449, #27ae60);
             transform: scale(0.98);
         }
 
@@ -729,7 +757,7 @@ Here
         </div>
     </div>
 
-    <!-- HEADER with 5 colored lightning bolts and split animated title + BLACK TAG -->
+    <!-- HEADER with 5 colored lightning bolts and split animated title + BLACK TAG + LIGHT UNDER TITLE -->
     <header>
         <div class="lightning-row">
             <span class="lightning">⚡</span>
