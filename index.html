@@ -1,659 +1,626 @@
-Here is the complete HTML document that transforms the "Yono Games Platform" into a "Yono Games Website" with green, black, and white branding, adds separate Privacy Policy, Disclaimer, and About Us sections, and maintains all requested features including 35 real-money apps with Teen Patti Master and Yono Rummy as the top two.
+Here is an HTML document that creates a "Yono Games" platform with exactly 35 real money game apps, featuring Teen Patti Master first and Yono Rummy second. It includes a pink header with pulsing stars, a functional menu, download modals, back navigation, and separate footer sections for Privacy Policy, Disclaimer, and About Us, all styled with green, black, and white branding.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Yono Games Website | Real Money Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Yono Games • Real Money Apps</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, 'Segoe UI', 'Poppins', sans-serif;
+      font-family: system-ui, 'Segoe UI', 'Poppins', 'Roboto', sans-serif;
     }
 
     body {
-      background: linear-gradient(145deg, #fef5e7 0%, #fff3e0 100%);
-      padding-bottom: 80px;
+      background: #f8f9ff;
+      overflow-x: hidden;
+      padding-bottom: 90px;
     }
 
-    /* Pink Header with 5 Pulsing Stars */
+    /* ===== PINK HEADER WITH PULSING STARS ===== */
     .pink-header {
-      background: #ff69b4;
-      background: linear-gradient(135deg, #ff85b3, #ff4d94);
-      padding: 14px 20px;
+      background: linear-gradient(135deg, #ff66b2 0%, #ff3388 100%);
+      padding: 16px 20px 18px;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      box-shadow: 0 8px 20px rgba(255, 51, 136, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 2px solid #ffb6d9;
+      gap: 12px;
     }
 
-    .header-left {
+    .nav-buttons {
       display: flex;
-      align-items: center;
-      gap: 18px;
+      gap: 20px;
     }
 
-    .home-link, .menu-toggle {
-      background: rgba(255,255,240,0.2);
+    .nav-btn {
+      background: rgba(255,255,240,0.25);
       backdrop-filter: blur(4px);
-      border: none;
+      padding: 6px 18px;
+      border-radius: 60px;
+      color: white;
       font-weight: bold;
       font-size: 1rem;
-      color: white;
       cursor: pointer;
-      padding: 6px 14px;
-      border-radius: 40px;
-      transition: 0.2s;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,200,0.5);
+      font-weight: 600;
+    }
+    .nav-btn:active { transform: scale(0.96); background: rgba(0,0,0,0.15); }
+
+    /* MULTICOLOR WEBSITE NAME: GREEN, BLACK, WHITE */
+    .brand-name {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .brand-green { color: #2ecc2e; }  /* vibrant green */
+    .brand-black { color: #111111; }
+    .brand-white { color: #ffffff; }
+
+    /* 5 PULSING STARS */
+    .star-container {
+      display: flex;
+      gap: 6px;
+      background: rgba(255,255,200,0.2);
+      padding: 5px 12px;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    .pulse-star {
+      font-size: 1.6rem;
+      color: #FFE484;
+      text-shadow: 0 0 3px gold;
+      animation: pulseGlow 1.4s infinite ease-in-out;
+      display: inline-block;
+    }
+    .pulse-star:nth-child(1) { animation-delay: 0s; }
+    .pulse-star:nth-child(2) { animation-delay: 0.2s; }
+    .pulse-star:nth-child(3) { animation-delay: 0.4s; }
+    .pulse-star:nth-child(4) { animation-delay: 0.6s; }
+    .pulse-star:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1); opacity: 0.7; text-shadow: 0 0 0px gold;}
+      50% { transform: scale(1.28); opacity: 1; text-shadow: 0 0 12px #ffd966; }
+      100% { transform: scale(1); opacity: 0.7; text-shadow: 0 0 0px gold;}
+    }
+
+    /* back button row */
+    .back-row {
+      margin-top: 10px;
+      padding-left: 4px;
+    }
+    .back-icon {
+      background: rgba(0,0,0,0.35);
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 5px 14px;
+      border-radius: 40px;
+      color: white;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: 0.2s;
     }
+    .back-icon:active { background: rgba(0,0,0,0.6); }
 
-    .home-link:hover, .menu-toggle:hover {
-      background: rgba(255,255,255,0.4);
-      transform: scale(1.02);
-    }
-
-    /* Three-color website name */
-    .site-name {
-      font-size: 1.7rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    }
-    .site-name .green-part { color: #2ecc2e; text-shadow: 0 0 2px black; }
-    .site-name .black-part { color: #1e1e1e; text-shadow: 0 0 1px white; }
-    .site-name .white-part { color: #ffffff; text-shadow: 0 0 2px #ff69b4; }
-
-    /* stars container */
-    .stars-pulse {
-      display: flex;
-      gap: 6px;
-      background: rgba(0,0,0,0.2);
-      padding: 6px 14px;
-      border-radius: 60px;
-    }
-    .star {
-      font-size: 24px;
-      color: #FFE484;
-      filter: drop-shadow(0 0 2px gold);
-      animation: pulseStar 1.4s infinite ease-in-out;
-      display: inline-block;
-    }
-    .star:nth-child(1) { animation-delay: 0s; }
-    .star:nth-child(2) { animation-delay: 0.2s; }
-    .star:nth-child(3) { animation-delay: 0.4s; }
-    .star:nth-child(4) { animation-delay: 0.6s; }
-    .star:nth-child(5) { animation-delay: 0.8s; }
-
-    @keyframes pulseStar {
-      0% { transform: scale(0.9); opacity: 0.7; text-shadow: 0 0 2px gold; }
-      50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 12px #FFD966; }
-      100% { transform: scale(0.9); opacity: 0.7; text-shadow: 0 0 2px gold; }
-    }
-
-    /* main container */
+    /* Main grid */
     .container {
-      max-width: 1400px;
-      margin: 30px auto;
-      padding: 0 20px;
+      max-width: 600px;
+      margin: 24px auto;
+      padding: 0 16px;
     }
 
-    .app-grid {
+    .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 18px;
     }
 
     /* app card */
     .app-card {
       background: white;
       border-radius: 28px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02);
+      padding: 16px 12px 14px;
       transition: all 0.2s ease;
       cursor: pointer;
-      border: 1px solid rgba(255,105,180,0.3);
+      text-align: center;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,105,180,0.2);
     }
-    .app-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 35px rgba(0, 0, 0, 0.12);
-      border-color: #ff69b4;
-    }
-    .card-content {
-      padding: 18px 18px 22px;
-    }
+    .app-card:active { transform: scale(0.97); background: #fff0f5; }
     .app-icon {
       font-size: 2.6rem;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
     .app-name {
-      font-size: 1.5rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #b34180, #ff69b4);
+      font-size: 1.2rem;
+      margin: 6px 0 4px;
+      background: linear-gradient(135deg,#111,#222);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 8px;
     }
-    .bonus-info {
-      background: #fef2e6;
-      padding: 8px 12px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin: 12px 0;
-      display: inline-block;
-      color: #bd5a2e;
-    }
-    .withdraw-info {
-      font-size: 0.85rem;
+    .bonus-badge {
+      background: #e9f7e1;
       color: #2c6e2c;
-      font-weight: 500;
-      background: #e6f4e6;
-      padding: 5px 12px;
-      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 50px;
       display: inline-block;
+      margin: 6px 0;
+    }
+    .withdrawal {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 10px;
     }
     .download-btn {
-      background: #ff69b4;
+      background: #ff66b2;
       border: none;
-      color: white;
-      font-weight: bold;
-      padding: 10px 0;
       width: 100%;
+      padding: 8px 0;
       border-radius: 40px;
-      margin-top: 14px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .download-btn:hover {
-      background: #e0559a;
-      transform: scale(0.98);
-    }
-
-    /* footer tags (privacy, disclaimer, about us - separate) */
-    .footer-tags {
-      background: #1f1f2f;
-      margin-top: 55px;
-      padding: 25px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      border-radius: 40px 40px 0 0;
-    }
-    .tag-item {
-      background: rgba(255,255,240,0.1);
-      backdrop-filter: blur(10px);
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
+      font-weight: bold;
       color: white;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(255,255,200,0.3);
+      font-size: 0.8rem;
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .tag-item:hover {
-      background: #ff69b4;
-      color: #1e1e1e;
-      transform: translateY(-3px);
-    }
-    .tag-item i { font-style: normal; font-weight: bold; font-size: 1.2rem; }
+    .download-btn:active { background: #e0559a; transform: scale(0.96); }
 
-    /* Modal overlay & content (reusable) */
-    .modal-overlay {
+    /* Menu Drawer */
+    .menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: rgba(0,0,0,0.7);
       z-index: 1000;
       visibility: hidden;
       opacity: 0;
-      transition: 0.2s;
+      transition: 0.25s;
     }
-    .modal-overlay.active {
-      visibility: visible;
-      opacity: 1;
-    }
-    .modal-container {
-      background: #fffef7;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 40px;
-      overflow: hidden;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-      transform: scale(0.95);
-      transition: transform 0.2s;
-    }
-    .modal-overlay.active .modal-container {
-      transform: scale(1);
-    }
-    .modal-header {
-      background: #ff69b4;
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-    }
-    .modal-header h3 {
-      font-size: 1.5rem;
-      margin: 0;
-    }
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .modal-body {
-      padding: 24px 22px;
-      max-height: 60vh;
-      overflow-y: auto;
-    }
-    .modal-footer {
-      padding: 12px 22px 24px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 16px;
-    }
-    .back-modal-btn, .action-download {
-      background: #ff69b4;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 50px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-    }
-    .back-modal-btn {
-      background: #4a4a6a;
-    }
-    .action-download {
-      background: #2e7d32;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-    }
-
-    /* side menu drawer */
-    .side-drawer {
+    .menu-drawer {
       position: fixed;
       top: 0;
       left: -280px;
       width: 280px;
       height: 100%;
-      background: #1e1a24;
-      z-index: 1100;
-      transition: left 0.3s ease;
-      box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+      background: #fff0f5;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+      z-index: 1001;
+      transition: 0.3s ease;
       padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      border-radius: 0 28px 28px 0;
     }
-    .side-drawer.open {
+    .menu-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .menu-drawer.active {
       left: 0;
     }
-    .drawer-close {
-      align-self: flex-end;
-      background: none;
-      border: none;
-      font-size: 28px;
+    .menu-drawer h3 {
+      font-size: 1.7rem;
+      margin-bottom: 30px;
+      border-left: 5px solid #ff66b2;
+      padding-left: 15px;
+    }
+    .menu-item {
+      padding: 14px 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-bottom: 1px solid #ffc0dd;
+      cursor: pointer;
+      transition: 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-item:active { background: #ffe0f0; padding-left: 8px; }
+    .close-menu {
+      margin-top: 40px;
+      background: #ff66b2;
       color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: bold;
       cursor: pointer;
     }
-    .drawer-link {
-      background: #2c2a3a;
-      padding: 12px 18px;
+
+    /* Modal base */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      backdrop-filter: blur(5px);
+    }
+    .modal-card {
+      background: white;
+      width: 85%;
+      max-width: 340px;
       border-radius: 40px;
-      color: #ffd9e8;
-      font-weight: bold;
+      padding: 28px 20px 30px;
       text-align: center;
+      animation: fadeUp 0.2s ease;
+    }
+    @keyframes fadeUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+    .modal-download-link {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      width: 80%;
+      margin: 20px 0;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .close-modal {
+      background: #ccc;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .footer-tags {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 10px;
+      border-top: 2px solid #ff66b2;
+      z-index: 15;
+      backdrop-filter: blur(10px);
+    }
+    .tag-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 40px;
       cursor: pointer;
       transition: 0.2s;
     }
-    .drawer-link:hover {
-      background: #ff69b4;
-      color: black;
-    }
-    .overlay-blur {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: rgba(0,0,0,0.4);
-      z-index: 1050;
-      display: none;
-    }
-    .overlay-blur.show {
-      display: block;
-    }
-
-    /* back navigation button floating  (extra back) */
-    .global-back-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff69b4;
-      width: 52px;
-      height: 52px;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 90;
-      border: none;
-      font-size: 26px;
-      color: white;
-    }
-    .global-back-btn:hover {
-      background: #e05498;
-    }
-
-    h2.section-title {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: #af4c7c;
-      border-left: 8px solid #ff69b4;
-      padding-left: 18px;
-    }
-
-    @media (max-width: 640px) {
-      .site-name { font-size: 1.2rem; }
-      .pink-header { padding: 10px 15px; }
-      .star { font-size: 18px; }
-      .home-link, .menu-toggle { padding: 4px 12px; font-size: 0.8rem; }
+    .tag-btn:active { background: #333; }
+    @media (max-width: 480px) {
+      .apps-grid { gap: 12px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .brand-name { font-size: 1.4rem; }
+      .star-container { gap: 3px; }
+      .pulse-star { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Pink Header with 5 pulsing stars -->
 <div class="pink-header">
-  <div class="header-left">
-    <button class="home-link" id="homeBtn">🏠 HOME</button>
-    <button class="menu-toggle" id="menuToggleBtn">☰ MENU</button>
+  <div class="header-row">
+    <div class="nav-buttons">
+      <div class="nav-btn" id="homeBtn">🏠 HOME</div>
+      <div class="nav-btn" id="menuBtn">☰ MENU</div>
+    </div>
+    <div class="brand-name">
+      <span class="brand-green">Yono</span><span class="brand-black"> </span><span class="brand-white">Games</span>
+    </div>
+    <div class="star-container">
+      <span class="pulse-star">★</span>
+      <span class="pulse-star">★</span>
+      <span class="pulse-star">★</span>
+      <span class="pulse-star">★</span>
+      <span class="pulse-star">★</span>
+    </div>
   </div>
-  <div class="site-name">
-    <span class="green-part">Yono</span>
-    <span class="black-part">Games</span>
-    <span class="white-part">Website</span>
-  </div>
-  <div class="stars-pulse">
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
+  <div class="back-row">
+    <div class="back-icon" id="backNavBtn">◀  Back navigation</div>
   </div>
 </div>
 
 <div class="container">
-  <h2 class="section-title">🔥 Real Money Earning Apps 🔥</h2>
-  <div class="app-grid" id="appGrid"></div>
+  <div class="apps-grid" id="appsGrid"></div>
 </div>
 
-<!-- Footer separate tags: Privacy Policy, Disclaimer, About Us -->
-<div class="footer-tags">
-  <div class="tag-item" id="privacyTag">🔒 Privacy Policy</div>
-  <div class="tag-item" id="disclaimerTag">⚠️ Disclaimer</div>
-  <div class="tag-item" id="aboutusTag">ℹ️ About Us</div>
-</div>
-
-<!-- Global modal (reusable) -->
-<div class="modal-overlay" id="globalModal">
-  <div class="modal-container">
-    <div class="modal-header">
-      <h3 id="modalTitle">Title</h3>
-      <button class="modal-close" id="closeModalBtn">&times;</button>
-    </div>
-    <div class="modal-body" id="modalBody">
-      Content here
-    </div>
-    <div class="modal-footer">
-      <button class="back-modal-btn" id="modalBackBtn">🔙 Back</button>
-      <button class="action-download" id="modalActionBtn" style="display: none;">📥 Download APK</button>
-    </div>
+<!-- MENU DRAWER -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-drawer" id="menuDrawer">
+    <h3>📁 Menu</h3>
+    <div class="menu-item" data-nav="home">🏠 Home</div>
+    <div class="menu-item" data-nav="privacy">🔒 Privacy Policy</div>
+    <div class="menu-item" data-nav="disclaimer">⚠️ Disclaimer</div>
+    <div class="menu-item" data-nav="about">ℹ️ About Us</div>
+    <button class="close-menu" id="closeMenuDrawer">✖ Close Menu</button>
   </div>
 </div>
 
-<!-- Side Drawer Menu -->
-<div class="side-drawer" id="sideDrawer">
-  <button class="drawer-close" id="closeDrawerBtn">✖</button>
-  <div class="drawer-link" data-nav="privacy"> Privacy Policy</div>
-  <div class="drawer-link" data-nav="disclaimer"> Disclaimer</div>
-  <div class="drawer-link" data-nav="about"> About Us</div>
-  <div class="drawer-link" data-nav="home">🏠 Back to Home</div>
-  <div class="drawer-link" id="closeDrawerOnly">❌ Close Menu</div>
+<!-- MODAL for APP DOWNLOAD (dynamic) -->
+<div id="appModal" class="modal">
+  <div class="modal-card">
+    <div id="modalAppIcon">🎮</div>
+    <h2 id="modalAppName">App Name</h2>
+    <p id="modalBonus">💰 Bonus: --</p>
+    <p id="modalMinWithdraw">💸 Min Withdrawal: --</p>
+    <button class="modal-download-link" id="modalDownloadBtn">📲 DOWNLOAD APK</button>
+    <button class="close-modal" id="closeAppModal">Close</button>
+  </div>
 </div>
-<div class="overlay-blur" id="drawerOverlay"></div>
 
-<!-- Global back button (floating back navigation) -->
-<button class="global-back-btn" id="globalBackBtn">←</button>
+<!-- POLICY MODAL -->
+<div id="policyModal" class="modal">
+  <div class="modal-card">
+    <h2>🔒 Privacy Policy</h2>
+    <p style="margin: 15px 0; font-size: 0.9rem;">Your privacy matters. We collect only necessary data to provide cash games experience. No third-party sharing without consent. All transactions are secured with encryption. For any concerns contact support@yonogames.com</p>
+    <button class="close-modal closeAnyModal">Close</button>
+  </div>
+</div>
+
+<!-- DISCLAIMER MODAL -->
+<div id="disclaimerModal" class="modal">
+  <div class="modal-card">
+    <h2>⚠️ Disclaimer</h2>
+    <p style="margin: 15px 0; font-size: 0.9rem;">These real money gaming apps involve financial risk. Play responsibly and only if you are 18+. Yono Games is an informational platform showcasing trending apps. Users must verify terms before download. We are not liable for losses.</p>
+    <button class="close-modal closeAnyModal">Close</button>
+  </div>
+</div>
+
+<!-- ABOUT US MODAL -->
+<div id="aboutModal" class="modal">
+  <div class="modal-card">
+    <h2>ℹ️ About Us</h2>
+    <p style="margin: 15px 0; font-size: 0.9rem;">Yono Games is a premium hub for real money gaming apps. We curate the best teen patti, rummy, and cash games with exclusive bonuses. Our mission: bring secure & fun earning opportunities to India.</p>
+    <button class="close-modal closeAnyModal">Close</button>
+  </div>
+</div>
+
+<!-- FOOTER TAGS: separate Privacy, Disclaimer, About Us -->
+<div class="footer-tags">
+  <button class="tag-btn" id="footerPrivacy">🔒 Privacy Policy</button>
+  <button class="tag-btn" id="footerDisclaimer">⚠️ Disclaimer</button>
+  <button class="tag-btn" id="footerAbout">ℹ️ About Us</button>
+</div>
 
 <script>
-  // ----------------------------- 35 REAL MONEY APPS (FIRST: Teen Patti Master, SECOND: Yono Rummy) -----------------------------
-  const appsData = [
-    { name: "Teen Patti Master", bonus: "₹20", minWithdraw: "₹100", icon: "🔴", downloadLink: "#apk_teenpatti_master" },
-    { name: "Yono Rummy", bonus: "₹35", minWithdraw: "₹100", icon: "🃏", downloadLink: "#apk_yono_rummy" },
-    { name: "Rummy Elite", bonus: "₹25", minWithdraw: "₹120", icon: "♠️", downloadLink: "#apk_rummy_elite" },
-    { name: "Teen Patti Gold", bonus: "₹30", minWithdraw: "₹150", icon: "🏅", downloadLink: "#apk_gold" },
-    { name: "Andar Bahar Pro", bonus: "₹22", minWithdraw: "₹110", icon: "🎴", downloadLink: "#apk_andar" },
-    { name: "Dragon Tiger Ace", bonus: "₹28", minWithdraw: "₹130", icon: "🐉", downloadLink: "#apk_dragon" },
-    { name: "Rummy Circle Win", bonus: "₹40", minWithdraw: "₹200", icon: "🟢", downloadLink: "#apk_circlewin" },
-    { name: "Poker Baazi", bonus: "₹50", minWithdraw: "₹250", icon: "♣️", downloadLink: "#apk_pokerbaazi" },
-    { name: "Teen Patti Star", bonus: "₹18", minWithdraw: "₹90", icon: "⭐", downloadLink: "#apk_star" },
-    { name: "Yono Cash Rummy", bonus: "₹45", minWithdraw: "₹150", icon: "💸", downloadLink: "#apk_yonocash" },
-    { name: "Junglee Rummy", bonus: "₹32", minWithdraw: "₹160", icon: "🌿", downloadLink: "#apk_junglee" },
-    { name: "Rummy Modern", bonus: "₹27", minWithdraw: "₹140", icon: "📱", downloadLink: "#apk_modern" },
-    { name: "Teen Patti Lucky", bonus: "₹15", minWithdraw: "₹100", icon: "🍀", downloadLink: "#apk_lucky" },
-    { name: "Call Break Money", bonus: "₹20", minWithdraw: "₹110", icon: "📞", downloadLink: "#apk_callbreak" },
-    { name: "Rummy Wealth", bonus: "₹60", minWithdraw: "₹300", icon: "💰", downloadLink: "#apk_wealth" },
-    { name: "Poker Stars India", bonus: "₹55", minWithdraw: "₹220", icon: "🌟", downloadLink: "#apk_pokerstars" },
-    { name: "Teen Patti Live", bonus: "₹25", minWithdraw: "₹100", icon: "📡", downloadLink: "#apk_live" },
-    { name: "Rummy Perfect", bonus: "₹38", minWithdraw: "₹180", icon: "🎯", downloadLink: "#apk_perfect" },
-    { name: "Andar Bahar Real", bonus: "₹19", minWithdraw: "₹95", icon: "🃟", downloadLink: "#apk_realandar" },
-    { name: "Yono Andar Bahar", bonus: "₹24", minWithdraw: "₹125", icon: "🎲", downloadLink: "#apk_yonoandar" },
-    { name: "Dragon vs Tiger", bonus: "₹33", minWithdraw: "₹150", icon: "🐅", downloadLink: "#apk_dragontiger" },
-    { name: "Teen Patti Winner", bonus: "₹42", minWithdraw: "₹190", icon: "🏆", downloadLink: "#apk_winner" },
-    { name: "Rummy Grand", bonus: "₹29", minWithdraw: "₹135", icon: "👑", downloadLink: "#apk_grand" },
-    { name: "All Rummy App", bonus: "₹21", minWithdraw: "₹105", icon: "🃎", downloadLink: "#apk_allrummy" },
-    { name: "Happy Teen Patti", bonus: "₹16", minWithdraw: "₹80", icon: "😊", downloadLink: "#apk_happy" },
-    { name: "Royal Rummy Club", bonus: "₹48", minWithdraw: "₹200", icon: "🤴", downloadLink: "#apk_royal" },
-    { name: "Mega Rummy", bonus: "₹36", minWithdraw: "₹170", icon: "💎", downloadLink: "#apk_mega" },
-    { name: "Flash Teen Patti", bonus: "₹30", minWithdraw: "₹140", icon: "⚡", downloadLink: "#apk_flash" },
-    { name: "Rummy Blitz", bonus: "₹26", minWithdraw: "₹120", icon: "🔥", downloadLink: "#apk_blitz" },
-    { name: "Fruit Rummy", bonus: "₹23", minWithdraw: "₹115", icon: "🍎", downloadLink: "#apk_fruit" },
-    { name: "7 Even Rummy", bonus: "₹34", minWithdraw: "₹155", icon: "🎰", downloadLink: "#apk_seven" },
-    { name: "Teen Patti Super", bonus: "₹39", minWithdraw: "₹185", icon: "🦸", downloadLink: "#apk_super" },
-    { name: "Yono Poker", bonus: "₹44", minWithdraw: "₹210", icon: "🎩", downloadLink: "#apk_yonopoker" },
-    { name: "Win Rummy Star", bonus: "₹31", minWithdraw: "₹145", icon: "✨", downloadLink: "#apk_winstar" },
-    { name: "Ultimate Rummy", bonus: "₹52", minWithdraw: "₹260", icon: "🏅", downloadLink: "#apk_ultimate" }
+  // ---------- 35 REAL MONEY APPS (Teen Patti Master first, Yono Rummy second) ----------
+  const appsList = [
+    { name: "Teen Patti Master", bonus: "₹20", minWithdrawal: "₹100", icon: "🃏" },
+    { name: "Yono Rummy", bonus: "₹25", minWithdrawal: "₹100", icon: "🃟" },
+    { name: "Teen Patti Gold", bonus: "₹30", minWithdrawal: "₹120", icon: "👑" },
+    { name: "Rummy Circle", bonus: "₹40", minWithdrawal: "₹150", icon: "🔄" },
+    { name: "PokerBaazi", bonus: "₹50", minWithdrawal: "₹200", icon: "♠️" },
+    { name: "Andar Bahar Elite", bonus: "₹20", minWithdrawal: "₹100", icon: "🎲" },
+    { name: "Call Break Cash", bonus: "₹28", minWithdrawal: "₹110", icon: "📞" },
+    { name: "Ludo Supreme", bonus: "₹35", minWithdrawal: "₹120", icon: "🎲" },
+    { name: "Dragon Tiger", bonus: "₹22", minWithdrawal: "₹100", icon: "🐉" },
+    { name: "3 Patti Blitz", bonus: "₹45", minWithdrawal: "₹130", icon: "⚡" },
+    { name: "Rummy Wealth", bonus: "₹60", minWithdrawal: "₹200", icon: "💰" },
+    { name: "Teen Patti Live", bonus: "₹25", minWithdrawal: "₹100", icon: "🎥" },
+    { name: "Yono Poker", bonus: "₹33", minWithdrawal: "₹140", icon: "🃟" },
+    { name: "Teen Patti Party", bonus: "₹20", minWithdrawal: "₹100", icon: "🎉" },
+    { name: "Rummy Ares", bonus: "₹40", minWithdrawal: "₹150", icon: "⚔️" },
+    { name: "Junglee Rummy", bonus: "₹55", minWithdrawal: "₹160", icon: "🌿" },
+    { name: "Mpl Rummy", bonus: "₹30", minWithdrawal: "₹125", icon: "🎮" },
+    { name: "Pocket52", bonus: "₹48", minWithdrawal: "₹180", icon: "🎒" },
+    { name: "Classic Rummy", bonus: "₹26", minWithdrawal: "₹105", icon: "🃟" },
+    { name: "Gin Rummy Plus", bonus: "₹32", minWithdrawal: "₹115", icon: "🍸" },
+    { name: "Patti Gold", bonus: "₹38", minWithdrawal: "₹130", icon: "🏅" },
+    { name: "Rummy Bloc", bonus: "₹42", minWithdrawal: "₹145", icon: "🧱" },
+    { name: "Teen Patti Crown", bonus: "₹50", minWithdrawal: "₹150", icon: "👑" },
+    { name: "Real Cash Rummy", bonus: "₹35", minWithdrawal: "₹125", icon: "💵" },
+    { name: "Teen Patti Winner", bonus: "₹44", minWithdrawal: "₹140", icon: "🏆" },
+    { name: "Rummy Master", bonus: "₹29", minWithdrawal: "₹100", icon: "🎓" },
+    { name: "Poker Power", bonus: "₹52", minWithdrawal: "₹170", icon: "🔥" },
+    { name: "Slots Rummy", bonus: "₹27", minWithdrawal: "₹110", icon: "🎰" },
+    { name: "Cash Patti", bonus: "₹39", minWithdrawal: "₹135", icon: "💸" },
+    { name: "Rummy Loot", bonus: "₹58", minWithdrawal: "₹190", icon: "💰" },
+    { name: "Andar Bahar Real", bonus: "₹21", minWithdrawal: "₹100", icon: "🃟" },
+    { name: "Teen Patti Stars", bonus: "₹46", minWithdrawal: "₹150", icon: "⭐" },
+    { name: "Rummy Fun", bonus: "₹24", minWithdrawal: "₹105", icon: "😄" },
+    { name: "Poker Heat", bonus: "₹41", minWithdrawal: "₹155", icon: "♨️" },
+    { name: "Rummy Time", bonus: "₹34", minWithdrawal: "₹120", icon: "⏰" }
   ];
-  // exactly 35 apps check: after push the list length = 35. (yes)
+  // ensure exact 35 length
+  console.assert(appsList.length === 35, "Exactly 35 apps loaded");
 
-  // Render apps grid
-  const appGrid = document.getElementById("appGrid");
+  // Render grid
+  const appsGrid = document.getElementById("appsGrid");
   function renderApps() {
-    appGrid.innerHTML = "";
-    appsData.forEach((app, idx) => {
+    appsGrid.innerHTML = "";
+    appsList.forEach((app, idx) => {
       const card = document.createElement("div");
       card.classList.add("app-card");
-      card.setAttribute("data-app-index", idx);
+      card.setAttribute("data-idx", idx);
       card.innerHTML = `
-        <div class="card-content">
-          <div class="app-icon">${app.icon}</div>
-          <div class="app-name">${app.name}</div>
-          <div class="bonus-info">📈 Signup Bonus: ${app.bonus}</div>
-          <div class="withdraw-info">🎁 Min Withdrawal: ${app.minWithdraw}</div>
-          <button class="download-btn" data-idx="${idx}">📲 Download APK</button>
-        </div>
+        <div class="app-icon">${app.icon}</div>
+        <div class="app-name">${app.name}</div>
+        <div class="bonus-badge">🎁 Signup: ${app.bonus}</div>
+        <div class="withdrawal">💸 Min withdrawal: ${app.minWithdrawal}</div>
+        <button class="download-btn" data-idx="${idx}">Get APK</button>
       `;
-      appGrid.appendChild(card);
-    });
-    // attach download button events
-    document.querySelectorAll(".download-btn").forEach(btn => {
+      // open modal on button click
+      const btn = card.querySelector(".download-btn");
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        const idx = btn.getAttribute("data-idx");
-        if (idx !== null) openAppModal(parseInt(idx));
+        openAppModal(appsList[parseInt(btn.dataset.idx)], parseInt(btn.dataset.idx));
       });
-    });
-    // also card click can open same modal
-    document.querySelectorAll(".app-card").forEach(card => {
-      card.addEventListener("click", (e) => {
-        if (e.target.classList.contains("download-btn")) return;
-        const idx = card.getAttribute("data-app-index");
-        if (idx) openAppModal(parseInt(idx));
-      });
+      appsGrid.appendChild(card);
     });
   }
 
-  // Modal handlers
-  let currentModalType = null;  // 'app' or 'policy'
-  let currentAppIndex = null;
-  const modal = document.getElementById("globalModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBodyDiv = document.getElementById("modalBody");
-  const modalActionBtn = document.getElementById("modalActionBtn");
-  const modalBackBtn = document.getElementById("modalBackBtn");
+  // Modal logic for app download
+  const appModal = document.getElementById("appModal");
+  const modalAppName = document.getElementById("modalAppName");
+  const modalBonus = document.getElementById("modalBonus");
+  const modalMinWithdraw = document.getElementById("modalMinWithdraw");
+  const modalAppIcon = document.getElementById("modalAppIcon");
+  const modalDownloadBtn = document.getElementById("modalDownloadBtn");
+  const closeAppModal = document.getElementById("closeAppModal");
+  let currentAppObj = null;
 
-  function closeModal() {
-    modal.classList.remove("active");
-    currentModalType = null;
-    currentAppIndex = null;
-    modalActionBtn.style.display = "none";
+  function openAppModal(app, idx) {
+    currentAppObj = app;
+    modalAppIcon.innerText = app.icon;
+    modalAppName.innerText = app.name;
+    modalBonus.innerText = `💰 Signup Bonus: ${app.bonus}`;
+    modalMinWithdraw.innerText = `💸 Minimum Withdrawal: ${app.minWithdrawal}`;
+    appModal.style.display = "flex";
   }
 
-  function openAppModal(appIndex) {
-    const app = appsData[appIndex];
-    if (!app) return;
-    currentAppIndex = appIndex;
-    currentModalType = "app";
-    modalTitle.innerText = `${app.icon} ${app.name}`;
-    modalBodyDiv.innerHTML = `
-      <p style="font-size:1.1rem; margin-bottom:12px;"><strong>💰 Signup Bonus:</strong> ${app.bonus}</p>
-      <p style="margin-bottom:12px;"><strong>🏧 Min Withdrawal:</strong> ${app.minWithdraw}</p>
-      <p style="margin-bottom:16px;"><strong>📱 APK Details:</strong> Get the official ${app.name} APK and start earning real money. Instant withdrawals available.</p>
-      <p style="background:#f2f2f2; padding:12px; border-radius:20px;">🔐 Trusted by millions | 100% secure payment gateway</p>
-    `;
-    modalActionBtn.style.display = "flex";
-    modalActionBtn.innerText = "📥 Download APK Now";
-    modalActionBtn.onclick = () => {
-      // simulate download page / redirect (real app download)
-      window.open(app.downloadLink, "_blank");
-      alert(`Download link for ${app.name}: ${app.downloadLink} (simulated)\nIn real scenario, APK download starts.`);
-    };
-    modal.classList.add("active");
-  }
-
-  // policy modal content
-  function openPolicyModal(type) {
-    currentModalType = "policy";
-    modalActionBtn.style.display = "none";
-    if (type === 'privacy') {
-      modalTitle.innerText = "🔒 Privacy Policy";
-      modalBodyDiv.innerHTML = `<p><strong>Yono Games Website</strong> respects your privacy. We collect minimal data like device info for app functionality. We never share financial or personal data with third parties. All transactions are encrypted. For any concerns, contact support@yonogames.com.</p><br/><p>✔️ No data selling ✔️ Secure Servers ✔️ 18+ only.</p>`;
-    } else if (type === 'disclaimer') {
-      modalTitle.innerText = "⚠️ Disclaimer";
-      modalBodyDiv.innerHTML = `<p><strong>Disclaimer:</strong> This platform lists third-party real money gaming apps. Users must check their local laws before participating. We are not responsible for any financial losses or legal issues. These apps involve financial risk and should be used responsibly. 18+ only. No guarantee of winnings.</p><p>Always play responsibly and within your limits.</p>`;
-    } else if (type === 'about') {
-      modalTitle.innerText = "ℹ️ About Us";
-      modalBodyDiv.innerHTML = `<p><strong>Yono Games Website</strong> is the #1 destination for real money gaming apps in India. We provide verified APKs, exclusive bonuses, and daily updates. Our mission: bring the best earning games like Teen Patti Master, Yono Rummy & 33+ others. Trusted by 5 million+ users.</p><br/><p>📍 Contact: support@yonogames.com<br/>📍 Follow us for new bonus offers daily.</p>`;
-    }
-    modal.classList.add("active");
-  }
-
-  // close modal via buttons
-  document.getElementById("closeModalBtn").addEventListener("click", closeModal);
-  modalBackBtn.addEventListener("click", closeModal);
-  // Global Back Button (floating) - closes modal if open else scrolls to top
-  const globalBack = document.getElementById("globalBackBtn");
-  globalBack.addEventListener("click", () => {
-    if (modal.classList.contains("active")) {
-      closeModal();
+  modalDownloadBtn.onclick = () => {
+    if (currentAppObj) {
+      alert(`🔽 Download started for ${currentAppObj.name} APK.\nCheck your downloads folder.\n(Simulated download page)`);
+      // simulate download action: could redirect but stays on page as real-money app portal
+      // "download pages" functional : shows download intent
     } else {
+      alert("Select an app first");
+    }
+  };
+
+  closeAppModal.onclick = () => { appModal.style.display = "none"; };
+  window.onclick = (e) => { if (e.target === appModal) appModal.style.display = "none"; };
+
+  // Privacy / Disclaimer / About modals
+  const policyModal = document.getElementById("policyModal");
+  const disclaimerModal = document.getElementById("disclaimerModal");
+  const aboutModal = document.getElementById("aboutModal");
+  const closeButtons = document.querySelectorAll(".closeAnyModal");
+  
+  function showModal(modal) {
+    modal.style.display = "flex";
+  }
+  document.getElementById("footerPrivacy").addEventListener("click", () => showModal(policyModal));
+  document.getElementById("footerDisclaimer").addEventListener("click", () => showModal(disclaimerModal));
+  document.getElementById("footerAbout").addEventListener("click", () => showModal(aboutModal));
+  closeButtons.forEach(btn => {
+    btn.onclick = () => {
+      policyModal.style.display = "none";
+      disclaimerModal.style.display = "none";
+      aboutModal.style.display = "none";
+    };
+  });
+  window.onclick = function(e) {
+    if (e.target === policyModal) policyModal.style.display = "none";
+    if (e.target === disclaimerModal) disclaimerModal.style.display = "none";
+    if (e.target === aboutModal) aboutModal.style.display = "none";
+  };
+
+  // Menu Drawer System + navigation
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuDrawer = document.getElementById("menuDrawer");
+  const menuBtn = document.getElementById("menuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuDrawer");
+  
+  function openMenu() {
+    menuOverlay.classList.add("active");
+    menuDrawer.classList.add("active");
+  }
+  function closeMenu() {
+    menuOverlay.classList.remove("active");
+    menuDrawer.classList.remove("active");
+  }
+  menuBtn.addEventListener("click", openMenu);
+  closeMenuBtn.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", (e) => {
+    if (e.target === menuOverlay) closeMenu();
+  });
+  // menu items actions
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.addEventListener("click", (e) => {
+      const nav = item.dataset.nav;
+      closeMenu();
+      if (nav === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else if (nav === "privacy") {
+        showModal(policyModal);
+      } else if (nav === "disclaimer") {
+        showModal(disclaimerModal);
+      } else if (nav === "about") {
+        showModal(aboutModal);
+      }
+    });
+  });
+
+  // HOME button scroll to top
+  document.getElementById("homeBtn").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // BACK NAVIGATION (functional back: history back + fallback)
+  const backNavBtn = document.getElementById("backNavBtn");
+  backNavBtn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      alert("No previous page, scroll to top instead");
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
-  // Home button behavior
-  document.getElementById("homeBtn").addEventListener("click", () => {
-    if (modal.classList.contains("active")) closeModal();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-  // Menu toggle & drawer logic
-  const sideDrawer = document.getElementById("sideDrawer");
-  const drawerOverlay = document.getElementById("drawerOverlay");
-  function openDrawer() { sideDrawer.classList.add("open"); drawerOverlay.classList.add("show"); }
-  function closeDrawer() { sideDrawer.classList.remove("open"); drawerOverlay.classList.remove("show"); }
-  document.getElementById("menuToggleBtn").addEventListener("click", openDrawer);
-  document.getElementById("closeDrawerBtn").addEventListener("click", closeDrawer);
-  document.getElementById("closeDrawerOnly").addEventListener("click", closeDrawer);
-  drawerOverlay.addEventListener("click", closeDrawer);
-  // drawer link events
-  document.querySelectorAll(".drawer-link[data-nav]").forEach(link => {
-    link.addEventListener("click", (e) => {
-      const navType = link.getAttribute("data-nav");
-      if (navType === "privacy") openPolicyModal("privacy");
-      else if (navType === "disclaimer") openPolicyModal("disclaimer");
-      else if (navType === "about") openPolicyModal("about");
-      else if (navType === "home") {
-        closeModal();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      closeDrawer();
-    });
-  });
-  // footer tag clicks separate (privacy, disclaimer, about us)
-  document.getElementById("privacyTag").addEventListener("click", () => openPolicyModal("privacy"));
-  document.getElementById("disclaimerTag").addEventListener("click", () => openPolicyModal("disclaimer"));
-  document.getElementById("aboutusTag").addEventListener("click", () => openPolicyModal("about"));
 
-  // Close modal on overlay click
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  // initialize app
+  // Also handle any modal close by clicking background and ensure Back Navigation is smooth
   renderApps();
 
-  // extra: ensure no "Yono Games Platform" text anywhere
-  document.title = "Yono Games Website - 35 Real Money Apps";
-  // Back navigation robust: if history back? but floating back covers modal escape.
-  console.log("Ready: Yono Games Website with 3-color name, separate policy/disclaimer/about, 35 apps, first Teen Patti Master, second Yono Rummy");
+  // Additional stars pulse is already animated via css.
+  // Also adding extra robustness: ensure that all modals close from background
+  window.addEventListener("click", (e) => {
+    if (e.target === appModal) appModal.style.display = "none";
+    if (e.target === policyModal) policyModal.style.display = "none";
+    if (e.target === disclaimerModal) disclaimerModal.style.display = "none";
+    if (e.target === aboutModal) aboutModal.style.display = "none";
+  });
+  
+  // small toast to confirm exactly 35 games visible
+  setTimeout(() => {
+    const cardCount = document.querySelectorAll(".app-card").length;
+    if (cardCount === 35) console.log("✅ 35 real money apps loaded correctly, Teen Patti Master first, Yono Rummy second");
+  }, 100);
+  
+  // ensuring Teen Patti Master is first card visually (already array order) & Yono Rummy second.
+  // Double check rendering first cards on refresh
+  // Also any dynamic addition? no, fully static after render.
+  // Back navigation, menu drawer, modals fully functional.
 </script>
 </body>
 </html>
