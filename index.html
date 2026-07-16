@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>yono games website | 35 Real Money Apps | Fast Download</title>
+
+    <!-- Preconnect for faster image loading -->
+    <link rel="preconnect" href="https://i.ibb.co">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
+    <link rel="preconnect" href="https://th7.my">
+    <link rel="dns-prefetch" href="https://th7.my">
+    <link rel="preconnect" href="https://d34i569g8ztoql.cloudfront.net">
+    <link rel="dns-prefetch" href="https://d34i569g8ztoql.cloudfront.net">
+
     <style>
         * {
             margin: 0;
@@ -103,59 +112,89 @@
             display: block;
         }
 
-        /* HEADER: Pink background + 5 pulsing stars + 3‑color title */
+        /* HEADER: Pink background + marquee */
         header {
             background: linear-gradient(135deg, #ff99cc, #ff3388);
             color: white;
-            padding: 40px 20px;
+            padding: 20px 20px;
             text-align: center;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
 
-        .stars-row {
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0,0,0,0.15);
+            padding: 12px 0;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        .marquee-track {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-        .star {
-            font-size: 2.5rem;
-            display: inline-block;
-            animation: starGlowPulse 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 4px gold);
-        }
-        .star:nth-child(1) { animation-delay: 0s; }
-        .star:nth-child(2) { animation-delay: 0.2s; }
-        .star:nth-child(3) { animation-delay: 0.4s; }
-        .star:nth-child(4) { animation-delay: 0.6s; }
-        .star:nth-child(5) { animation-delay: 0.8s; }
-
-        @keyframes starGlowPulse {
-            0% { transform: scale(1); opacity: 0.8; text-shadow: 0 0 3px gold; }
-            50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 20px gold, 0 0 8px orange; }
-            100% { transform: scale(1); opacity: 0.8; text-shadow: 0 0 3px gold; }
+            white-space: nowrap;
+            animation: scrollLeft 35s linear infinite;
+            width: max-content;
+            gap: 30px;
+            padding: 0 20px;
         }
 
-        .new-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-        .title-green {
-            color: #00ff00;
-            text-shadow: 0 0 8px #00ff00;
-        }
-        .title-black {
-            color: #000000;
-            text-shadow: 0 0 2px rgba(255,255,255,0.5);
-        }
-        .title-white {
-            color: #ffffff;
-            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        .marquee-track span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+            letter-spacing: 1px;
         }
 
+        .marquee-track .separator {
+            color: #ffdd99;
+            opacity: 0.6;
+            font-size: 1.4rem;
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Floating Share Button */
+        .floating-share {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: linear-gradient(135deg, #ff4081, #ff8c00);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 14px 22px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .floating-share:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 64, 129, 0.6);
+        }
+
+        .floating-share svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+
+        /* Rest of styles remain unchanged */
         .container {
             max-width: 1450px;
             margin: 30px auto;
@@ -624,8 +663,8 @@
         }
         @media (max-width: 640px) {
             .menu-btn { font-size: 1rem; padding: 4px 12px; }
-            .star { font-size: 1.6rem; gap: 15px; }
-            .new-title { font-size: 1.6rem; }
+            .marquee-track span { font-size: 0.9rem; }
+            .marquee-track { gap: 15px; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
@@ -639,6 +678,8 @@
             .dropdown a { padding: 10px 16px; font-size: 0.8rem; }
             .info-grid { gap: 10px; }
             .info-card { min-width: 120px; }
+            .floating-share { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 0.8rem; }
+            .floating-share svg { width: 18px; height: 18px; }
         }
 
         /* HD Contact Table Styles */
@@ -718,18 +759,17 @@
         </div>
     </div>
 
+    <!-- Floating Share Button -->
+    <button class="floating-share" id="shareBtn" aria-label="Share this page">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        Share / Copy Link
+    </button>
+
     <header>
-        <div class="stars-row">
-            <span class="star">⭐</span>
-            <span class="star">⭐</span>
-            <span class="star">⭐</span>
-            <span class="star">⭐</span>
-            <span class="star">⭐</span>
-        </div>
-        <div class="new-title">
-            <span class="title-green">yono</span>
-            <span class="title-black"> games </span>
-            <span class="title-white">website</span>
+        <div class="marquee-wrapper">
+            <div class="marquee-track" id="marqueeTrack">
+                <!-- Will be populated by JS -->
+            </div>
         </div>
     </header>
 
@@ -743,6 +783,59 @@
     </footer>
 
     <script>
+        // ===== APP LIST FOR MARQUEE =====
+        const appNamesForMarquee = [
+            "567 Slots", "Jaiho 91", "Rummy Ludo", "ABC Rummy", "Rummy 91",
+            "Love Rummy", "Bingo 101", "yono 777", "Saga Slots", "Spin Crush",
+            "Top Rummy", "New Yono Games", "Hello Rummy", "All Yono Apps", "Rummy 365",
+            "Taurus App", "Teen Patti Gold", "Teen Patti Master", "Yono Rummy",
+            "Slots Winner", "Good Slots", "Diwa Slot", "GoGo Rummy", "Joy Rummy",
+            "Spin Gold", "Yes Spin", "Yono Arcade", "SVIP 777", "OK Rummy",
+            "Hind 777", "Rummy Most", "Bet 213", "Teen Patti", "Boss Rummy",
+            "Diwa VIP", "Diwa 777"
+        ];
+
+        // Populate marquee (duplicate for seamless loop)
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        if (marqueeTrack) {
+            const createMarqueeItems = () => {
+                let html = '';
+                // Double the list to ensure seamless loop
+                const items = [...appNamesForMarquee, ...appNamesForMarquee];
+                items.forEach((name, index) => {
+                    html += `<span>${name}</span>`;
+                    if (index < items.length - 1) {
+                        html += `<span class="separator">✦</span>`;
+                    }
+                });
+                return html;
+            };
+            marqueeTrack.innerHTML = createMarqueeItems();
+        }
+
+        // ===== SHARE / COPY FUNCTION =====
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'yono games website',
+                    text: 'Check out these amazing real-money gaming apps!',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                // Fallback: copy to clipboard
+                const url = window.location.href;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('✅ Link copied to clipboard! Share it with your friends.');
+                    }).catch(() => {
+                        prompt('Copy this link to share:', url);
+                    });
+                } else {
+                    prompt('Copy this link to share:', url);
+                }
+            }
+        });
+
         // ---------- 35 APPS DATA (Teen Patti Master first, Yono Rummy second) ----------
         const allApps = [
             // 13 new apps
@@ -760,7 +853,7 @@
             { name: "Hello Rummy", bonus: "₹34", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/27DSP5zR/1000022725.jpg", category: "Rummy" },
             { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg", category: "Rummy" },
             
-            // 22 old apps (removed: Taurus App, Bet 213, All Teen Patti Master)
+            // 22 old apps
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
             { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
             { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg", category: "Rummy" },
@@ -870,7 +963,7 @@
                 html += `
                     <div class="card" data-app-index="${idx}">
                         <div class="card-app-name">${app.name}</div>
-                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=App'"></div>
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="80" height="80" onerror="this.src='https://via.placeholder.com/80?text=App'"></div>
                         <div class="card-stats">
                             <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
                             <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
@@ -917,7 +1010,7 @@
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                     <div class="other-card">
-                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=App'"></div>
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="60" height="60" onerror="this.src='https://via.placeholder.com/60?text=App'"></div>
                         <div class="app-name">${app.name}</div>
                         <div class="bonus">🎁 ${app.bonus}</div>
                         <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
@@ -934,7 +1027,7 @@
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
-                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}" onerror="this.src='https://via.placeholder.com/90?text=App'"></div>
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}" loading="lazy" decoding="async" width="90" height="90" onerror="this.src='https://via.placeholder.com/90?text=App'"></div>
                         
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
@@ -1078,7 +1171,7 @@
             resetToMainGrid();
         });
 
-        // ===== CONTACT US (HD) =====
+        // ===== CONTACT US =====
         menuContact.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('📞 Contact Us - yono games site', `
@@ -1099,7 +1192,7 @@
             `);
         });
 
-        // ===== DISCLAIMER (HD) =====
+        // ===== DISCLAIMER =====
         menuDisclaimer.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('⚠️ Disclaimer - yono games site', `
@@ -1125,7 +1218,7 @@
             `);
         });
 
-        // ===== ABOUT US (HD) =====
+        // ===== ABOUT US =====
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('ℹ️ About - yono games site', `
