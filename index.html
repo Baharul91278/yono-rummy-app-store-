@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>yono games website | 32 Real Money Apps | Fast Download</title>
 
-    <!-- Preconnect for faster image loading -->
     <link rel="preconnect" href="https://i.ibb.co">
     <link rel="dns-prefetch" href="https://i.ibb.co">
     <link rel="preconnect" href="https://th7.my">
@@ -27,7 +26,90 @@
             padding-bottom: 30px;
         }
 
-        /* HEADER: Pink background + MARQUEE HD */
+        /* ----- TOP NAVIGATION ----- */
+        .top-nav {
+            background: #0a2e1d;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #ffcf8a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            padding: 6px 12px;
+            border-radius: 40px;
+            cursor: pointer;
+            background: rgba(255, 255, 240, 0.1);
+            white-space: nowrap;
+        }
+        .nav-left a:hover {
+            background: #ffcf8a;
+            color: #0a2e1d;
+        }
+        .menu-container {
+            position: relative;
+        }
+        .menu-btn {
+            background: rgba(255, 255, 240, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+        }
+        .menu-btn:hover {
+            background: #ffcf8a;
+            color: #0a2e1d;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            min-width: 180px;
+            z-index: 150;
+            overflow: hidden;
+            border: 1px solid #ffcf8a;
+        }
+        .dropdown a {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #1e562a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 1px solid #ffe6cc;
+        }
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dropdown a:hover {
+            background: #fef1cf;
+            color: #b45900;
+        }
+        .dropdown.show {
+            display: block;
+        }
+
+        /* ----- HEADER & MARQUEE (unchanged) ----- */
         header {
             background: linear-gradient(135deg, #ff99cc, #ff3388);
             color: white;
@@ -37,8 +119,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        /* HD MARQUEE - Right to Left */
         .marquee-wrapper {
             width: 100%;
             overflow: hidden;
@@ -50,7 +130,6 @@
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.03);
             position: relative;
         }
-
         .marquee-wrapper::before {
             content: '';
             position: absolute;
@@ -63,12 +142,10 @@
             z-index: 0;
             animation: borderGlow 3s ease-in-out infinite;
         }
-
         @keyframes borderGlow {
             0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
-
         .marquee-track {
             display: flex;
             white-space: nowrap;
@@ -79,7 +156,6 @@
             position: relative;
             z-index: 1;
         }
-
         .marquee-track .marquee-item {
             font-size: 1.2rem;
             font-weight: 800;
@@ -93,13 +169,11 @@
             transition: 0.3s;
             flex-shrink: 0;
         }
-
         .marquee-track .marquee-item:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: scale(1.05);
             text-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
         }
-
         .marquee-track .separator {
             color: #ffdd99;
             opacity: 0.5;
@@ -108,7 +182,6 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
             flex-shrink: 0;
         }
-
         @keyframes scrollRightToLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -136,12 +209,10 @@
             backdrop-filter: blur(6px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         .floating-share:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 35px rgba(255, 64, 129, 0.6);
         }
-
         .floating-share svg {
             width: 22px;
             height: 22px;
@@ -154,6 +225,7 @@
             padding: 0 16px;
         }
 
+        /* Cards and other styles remain unchanged */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -161,7 +233,6 @@
             gap: 24px;
             margin-bottom: 40px;
         }
-
         .card {
             background: white;
             border-radius: 36px;
@@ -174,13 +245,11 @@
             border: 1px solid #eef2f8;
             text-align: center;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.2);
             border-color: #ffcf8a;
         }
-
         .card-app-name {
             font-size: 1.35rem;
             font-weight: 800;
@@ -191,7 +260,6 @@
             margin-bottom: 12px;
             letter-spacing: -0.2px;
         }
-
         .card-img {
             width: 80px;
             height: 80px;
@@ -204,13 +272,11 @@
             overflow: hidden;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
         }
-
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .card-stats {
             display: flex;
             flex-wrap: wrap;
@@ -236,7 +302,6 @@
             color: #6c7a5a;
             letter-spacing: 0.3px;
         }
-
         .withdrawal-note {
             font-size: 0.7rem;
             font-weight: 700;
@@ -247,7 +312,6 @@
             border-radius: 40px;
             margin-top: 6px;
         }
-
         .download-btn {
             display: block;
             width: 100%;
@@ -265,7 +329,6 @@
             cursor: pointer;
             border: none;
         }
-
         .download-btn:hover {
             background: linear-gradient(95deg, #1e8449, #27ae60);
             transform: scale(0.98);
@@ -280,19 +343,16 @@
             border: 1px solid #ffe1b3;
             animation: fadeSlideUp 0.4s ease;
         }
-
         @keyframes fadeSlideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .download-header {
             text-align: center;
             border-bottom: 2px dashed #ffcf8a;
             padding-bottom: 18px;
             margin-bottom: 24px;
         }
-
         .download-header h2 {
             font-size: 1.7rem;
             font-weight: 800;
@@ -302,7 +362,6 @@
             color: transparent;
             margin-bottom: 6px;
         }
-
         .bonus-text {
             color: #ff0000;
             font-weight: 700;
@@ -311,7 +370,6 @@
             color: #008000;
             font-weight: 700;
         }
-
         .app-highlight {
             background: #fff7e8;
             padding: 24px 20px;
@@ -319,7 +377,6 @@
             margin: 16px 0;
             text-align: center;
         }
-
         .stats-row {
             display: flex;
             flex-wrap: wrap;
@@ -346,7 +403,6 @@
             color: #6c7a5a;
             letter-spacing: 0.5px;
         }
-
         .app-description {
             background: white;
             padding: 18px 20px;
@@ -358,7 +414,6 @@
             color: #2d3e2b;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
         }
-
         .info-grid {
             display: flex;
             flex-wrap: wrap;
@@ -387,7 +442,6 @@
             color: #1e562a;
             margin-top: 4px;
         }
-
         .howto-steps {
             background: #f0f9f0;
             border-radius: 32px;
@@ -409,7 +463,6 @@
             font-size: 0.85rem;
             line-height: 1.4;
         }
-
         .faq-section {
             background: #fef4e6;
             border-radius: 32px;
@@ -432,7 +485,6 @@
             color: #2d3e2b;
             padding-left: 12px;
         }
-
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #ff4081);
             padding: 14px 20px;
@@ -456,7 +508,6 @@
             background: linear-gradient(95deg, #1e8449, #e91e63);
             box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
         }
-
         .other-apps-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -465,7 +516,6 @@
             border-left: 6px solid #e67e22;
             padding-left: 16px;
         }
-
         .other-apps-grid {
             display: flex;
             flex-wrap: wrap;
@@ -473,7 +523,6 @@
             justify-content: center;
             margin-top: 12px;
         }
-
         .other-card {
             background: #fefcf5;
             border-radius: 32px;
@@ -483,13 +532,11 @@
             border: 1px solid #ffe1b3;
             text-align: center;
         }
-
         .other-card .app-name {
             font-size: 1rem;
             margin: 8px 0 6px;
             font-weight: 800;
         }
-
         .other-card .bonus {
             font-size: 0.75rem;
             padding: 4px 12px;
@@ -497,7 +544,6 @@
             border-radius: 60px;
             display: inline-block;
         }
-
         .small-download {
             background: linear-gradient(95deg, #00bcd4, #00e5ff);
             font-size: 0.8rem;
@@ -518,7 +564,6 @@
             background: linear-gradient(95deg, #0097a7, #00b8d4);
             transform: scale(0.98);
         }
-
         .footer-note {
             text-align: center;
             background: #ecf9f0;
@@ -528,7 +573,6 @@
             font-size: 0.75rem;
             margin-top: 20px;
         }
-
         footer {
             background: #0a2e1d;
             color: #b9ddcb;
@@ -537,7 +581,6 @@
             margin-top: 30px;
             font-size: 0.7rem;
         }
-
         .info-modal {
             display: none;
             position: fixed;
@@ -601,12 +644,57 @@
             background: #1e8449;
             transform: scale(0.98);
         }
-
         .hidden {
             display: none;
         }
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Contact table (used in modals) */
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: linear-gradient(145deg, #fff9f0, #ffe6cc);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .contact-table th,
+        .contact-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #ffcf8a;
+            font-size: 0.9rem;
+        }
+        .contact-table th {
+            background: #0a2e1d;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .contact-table td {
+            background: white;
+        }
+        .contact-table tr:last-child td {
+            border-bottom: none;
+        }
+        .contact-email {
+            color: #d50000;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+        .contact-telegram {
+            color: #0088cc;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .contact-telegram:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 640px) {
@@ -671,57 +759,26 @@
                 padding: 10px 0;
             }
         }
-
-        /* HD Contact Table Styles */
-        .contact-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: linear-gradient(145deg, #fff9f0, #ffe6cc);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .contact-table th,
-        .contact-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #ffcf8a;
-            font-size: 0.9rem;
-        }
-        .contact-table th {
-            background: #0a2e1d;
-            color: white;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .contact-table td {
-            background: white;
-        }
-        .contact-table tr:last-child td {
-            border-bottom: none;
-        }
-        .contact-email {
-            color: #d50000;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-email:hover {
-            text-decoration: underline;
-        }
-        .contact-telegram {
-            color: #0088cc;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-telegram:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Floating Share Button -->
+    <!-- ===== TOP NAVIGATION ===== -->
+    <div class="top-nav">
+        <div class="nav-left">
+            <a id="homeNavLink">🏠 HOME</a>
+        </div>
+        <div class="menu-container">
+            <button class="menu-btn" id="menuBtn">☰ MENU</button>
+            <div class="dropdown" id="dropdownMenu">
+                <a id="menuAbout">📋 About Us</a>
+                <a id="menuContact">📞 Contact Us</a>
+                <a id="menuDisclaimer">⚠️ Disclaimer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING SHARE BUTTON ===== -->
     <button class="floating-share" id="shareBtn" aria-label="Share this page">
         <svg viewBox="0 0 24 24" width="22" height="22">
             <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
@@ -729,6 +786,7 @@
         Share / Copy Link
     </button>
 
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="marquee-wrapper">
             <div class="marquee-track" id="marqueeTrack">
@@ -795,7 +853,6 @@
                 <span class="separator">✦</span>
                 <span class="marquee-item">Diwa 777</span>
                 <span class="separator">✦</span>
-
                 <!-- DUPLICATE FOR SEAMLESS LOOP -->
                 <span class="marquee-item">567 Slots</span>
                 <span class="separator">✦</span>
@@ -863,21 +920,21 @@
         </div>
     </header>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <div class="container" id="mainContainer">
         <div id="allAppsGrid" class="cards-grid"></div>
         <div id="downloadPageContainer" class="hidden"></div>
     </div>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <marquee behavior="scroll" direction="left" scrollamount="6">
-
-567 Slots | Jaiho 91 | Rummy Ludo | ABC Rummy | Rummy 91 | Love Rummy | Bingo 101 | Yono 777 | Saga Slots | Spin Crush | Top Rummy | New Yono Games | Hello Rummy | All Yono Games | Rummy 365 | Taurus App | Teen Patti Gold | Teen Patti Master | Yono Rummy | Slots Winner | Good Slots | Diwa Slot | GoGo Rummy | Joy Rummy | Spin Gold | Yes Spin | Yono Arcade | SVIP 777 | OK Rummy | Hind 777 | Rummy Most | Bet 213 | Teen Patti | Boss Rummy | Diwa VIP | Diwa 777
-
-</marquee>
-        © 2026/2030yono games website — Play responsibly. 18+ only. | Official APK Downloads
+            567 Slots | Jaiho 91 | Rummy Ludo | ABC Rummy | Rummy 91 | Love Rummy | Bingo 101 | Yono 777 | Saga Slots | Spin Crush | Top Rummy | New Yono Games | Hello Rummy | All Yono Games | Rummy 365 | Taurus App | Teen Patti Gold | Teen Patti Master | Yono Rummy | Slots Winner | Good Slots | Diwa Slot | GoGo Rummy | Joy Rummy | Spin Gold | Yes Spin | Yono Arcade | SVIP 777 | OK Rummy | Hind 777 | Rummy Most | Bet 213 | Teen Patti | Boss Rummy | Diwa VIP | Diwa 777
+        </marquee>
+        © 2026/2030 yono games website — Play responsibly. 18+ only. | Official APK Downloads
     </footer>
 
-    <!-- Modal for Contact/Disclaimer/About -->
+    <!-- ===== MODAL ===== -->
     <div id="customInfoModal" class="info-modal">
         <div class="info-modal-content">
             <h4 id="modalTitle">Information</h4>
@@ -887,7 +944,7 @@
     </div>
 
     <script>
-        // ===== SHARE / COPY FUNCTION =====
+        // ===== SHARE FUNCTION =====
         document.getElementById('shareBtn').addEventListener('click', function() {
             if (navigator.share) {
                 navigator.share({
@@ -909,7 +966,7 @@
             }
         });
 
-        // ---------- 32 APPS DATA ----------
+        // ---------- APP DATA (32 apps) ----------
         const allApps = [
             { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg", category: "Slots" },
             { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg", category: "Slots" },
@@ -950,6 +1007,7 @@
         const rest = allApps.filter(a => a.name !== "Teen Patti Master" && a.name !== "Yono Rummy");
         const appsData = [teenPattiMaster, yonoRummy, ...rest];
 
+        // ---------- HELPER FUNCTIONS ----------
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -1018,6 +1076,7 @@
             `;
         }
 
+        // ---------- GRID RENDER ----------
         let currentSelectedIndex = null;
 
         function renderMainGrid() {
@@ -1051,6 +1110,7 @@
             });
         }
 
+        // ---------- NAVIGATION ----------
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
             history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
@@ -1164,28 +1224,7 @@
             currentSelectedIndex = null;
         }
 
-        window.addEventListener('popstate', (event) => {
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-                return;
-            }
-            if (event.state && event.state.page === 'download') {
-                showDownloadPage(event.state.index);
-            } else {
-                goToMainGrid();
-            }
-        });
-
-        history.replaceState({ page: 'main' }, '', window.location.pathname);
-
-        function resetToMainGrid() {
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-            }
-            history.replaceState({ page: 'main' }, '', window.location.pathname);
-            goToMainGrid();
-        }
-
+        // ---------- MODAL LOGIC ----------
         const customModal = document.getElementById('customInfoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -1203,23 +1242,113 @@
             history.replaceState({ page: 'main' }, '', window.location.pathname);
         }
 
-        closeInfoModal.addEventListener('click', () => {
-            closeModalAndResetHistory();
+        closeInfoModal.addEventListener('click', closeModalAndResetHistory);
+        window.addEventListener('click', (e) => {
+            if (e.target === customModal) closeModalAndResetHistory();
         });
 
-        window.addEventListener('click', (e) => {
-            if (e.target === customModal) {
+        // ---------- NAVIGATION & POPSTATE ----------
+        window.addEventListener('popstate', (event) => {
+            if (customModal.style.display === 'flex') {
                 closeModalAndResetHistory();
+                return;
+            }
+            if (event.state && event.state.page === 'download') {
+                showDownloadPage(event.state.index);
+            } else {
+                goToMainGrid();
             }
         });
 
-        // No menu or dropdown, so we just have the floating share button and modals.
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
 
+        function resetToMainGrid() {
+            if (customModal.style.display === 'flex') closeModalAndResetHistory();
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+            goToMainGrid();
+        }
+
+        // ---------- MENU DROPDOWN ----------
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdown = document.getElementById('dropdownMenu');
+        const menuAbout = document.getElementById('menuAbout');
+        const menuContact = document.getElementById('menuContact');
+        const menuDisclaimer = document.getElementById('menuDisclaimer');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // ---------- MENU ITEM HANDLERS ----------
+        menuAbout.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('📋 About Us', `
+                <p><strong>Welcome to yono games website</strong> – a comprehensive platform dedicated to bringing you the best real-money gaming apps in India. We curate and review apps that offer secure, fair, and profitable gaming experiences.</p>
+                <p><strong>Our Mission:</strong> To help Indian users discover trustworthy apps with great bonuses, fast withdrawals, and exciting gameplay. We test each app thoroughly before listing.</p>
+                <p><strong>What We Offer:</strong></p>
+                <ul>
+                    <li>✅ 32+ handpicked earning apps</li>
+                    <li>✅ Verified signup bonuses (₹15 to ₹60)</li>
+                    <li>✅ Clear withdrawal policies (min ₹100)</li>
+                    <li>✅ Direct APK download links</li>
+                    <li>✅ 24/7 support via email & Telegram</li>
+                </ul>
+                <p><strong>Contact:</strong> support@yonogameswebsite.com</p>
+                <p style="margin-top: 16px; background: #fef4e6; padding: 10px; border-radius: 12px; text-align:center;">🌟 <strong>Trusted by thousands of players across India</strong></p>
+            `);
+        });
+
+        menuContact.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('📞 Contact Us', `
+                <p><strong>Get in touch with yono games website</strong></p>
+                <p>If you have any questions, feedback, or business inquiries, please reach out to us through the following channels:</p>
+                <table class="contact-table">
+                    <tr><th>Method</th><th>Details</th></tr>
+                    <tr><td><strong>Email</strong></td><td><a href="mailto:support@yonogameswebsite.com" class="contact-email">support@yonogameswebsite.com</a></td></tr>
+                    <tr><td><strong>Telegram</strong></td><td><a href="https://t.me/yonogameswebsite" target="_blank" class="contact-telegram">@yonogameswebsite</a></td></tr>
+                </table>
+                <p><strong>Business & Advertisement Queries:</strong><br>If you are an app developer or operator and wish to promote your application on our platform, please contact us via email with your proposal.</p>
+                <p style="margin-top: 16px; background: #e8f5e9; padding: 10px; border-radius: 12px; text-align:center;">⚡ <strong>We respond within 24 hours</strong></p>
+            `);
+        });
+
+        menuDisclaimer.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('⚠️ Disclaimer', `
+                <p><strong>yono games website – Disclaimer</strong></p>
+                <p><strong>1. Third-Party Apps:</strong> We do not develop, operate, or control any of the apps listed. All apps are owned and managed by independent third-party entities.</p>
+                <p><strong>2. No Guarantee:</strong> Bonus amounts, withdrawal limits, and payout times are subject to change by the app developers. We strive to keep information accurate but do not guarantee its completeness.</p>
+                <p><strong>3. Financial Risk:</strong> Real-money gaming involves financial risk. You may lose money. Only play with funds you can afford to lose. You are solely responsible for your decisions.</p>
+                <p><strong>4. Age Restriction:</strong> You must be at least 18 years old (or the legal age in your region) to use any real-money gaming app. Comply with local laws.</p>
+                <p><strong>5. No Warranties:</strong> We provide the platform "as is" and disclaim all warranties. We are not liable for any damages or losses arising from the use of third-party apps.</p>
+                <p><strong>6. Affiliate Disclosure:</strong> Some download links may be affiliate links. We may earn a small commission at no extra cost to you.</p>
+                <p><strong>7. Responsible Gaming:</strong> If you feel you have a gambling problem, seek help from professional organisations like BeGambleAware or Gamblers Anonymous.</p>
+                <p style="margin-top: 16px; background: #ffebee; padding: 10px; border-radius: 12px; text-align:center; border-left: 4px solid #d50000;">🔞 <strong>This platform is strictly for users aged 18+.</strong></p>
+            `);
+        });
+
+        // ---------- HOME LINK ----------
+        const homeLink = document.getElementById('homeNavLink');
+        if (homeLink) {
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetToMainGrid();
+            });
+        }
+
+        // ---------- INIT ----------
         function init() {
             renderMainGrid();
-            // No home link to reset since we removed the nav.
         }
         init();
     </script>
 </body>
-</html
+</html>
