@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Yono Games – Download APK | ₹45 Bonus</title>
+    <title>Yono Games – Download APK</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
             padding-top: 80px;
         }
 
-        /* ===== TOP NAV ===== */
         .top-nav {
             position: fixed;
             top: 0;
@@ -69,11 +68,10 @@
         }
 
         .container {
-            max-width: 420px;
+            max-width: 400px;
             width: 100%;
         }
 
-        /* ===== CARD ===== */
         .card {
             background: white;
             border-radius: 32px;
@@ -187,7 +185,6 @@
             color: #d50000;
         }
 
-        /* ===== DOWNLOAD BUTTON ===== */
         .download-btn {
             display: block;
             width: 100%;
@@ -236,38 +233,6 @@
             color: #6c7a5a;
         }
 
-        /* ===== DOWNLOAD INFO SECTION ===== */
-        .download-info {
-            background: linear-gradient(145deg, #f8faf8, #edf5ed);
-            border-radius: 16px;
-            padding: 14px 16px;
-            margin: 12px 0 10px;
-            text-align: left;
-            border: 1px solid #d4e6d4;
-            font-size: 0.78rem;
-            line-height: 1.9;
-            color: #2d3e2b;
-        }
-
-        .download-info strong {
-            color: #1e562a;
-        }
-
-        .download-info .icon {
-            margin-right: 6px;
-        }
-
-        .download-info .section-title {
-            font-weight: 800;
-            font-size: 0.85rem;
-            color: #0a2e1d;
-            border-bottom: 2px solid #ffcf8a;
-            padding-bottom: 6px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* ===== SPIN & WIN SECTION ===== */
         .spin-section {
             background: linear-gradient(135deg, #fff5e6, #ffe6cc);
             border-radius: 16px;
@@ -287,7 +252,35 @@
             display: block;
         }
 
-        /* ===== HOW TO DOWNLOAD ===== */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .bonus-item {
+            background: white;
+            border-radius: 12px;
+            padding: 8px 10px;
+            text-align: center;
+            border: 1px solid #d4e6d4;
+        }
+
+        .bonus-item .b-label {
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: #6c7a5a;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .bonus-item .b-value {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #1e562a;
+        }
+
         .howto-section {
             background: #f0f9f0;
             border-radius: 16px;
@@ -318,7 +311,6 @@
             color: #1e562a;
         }
 
-        /* ===== FAQ SECTION ===== */
         .faq-section {
             background: #fef4e6;
             border-radius: 16px;
@@ -360,41 +352,10 @@
             line-height: 1.5;
         }
 
-        /* ===== BONUS GRID ===== */
-        .bonus-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 8px 0;
-        }
-
-        .bonus-item {
-            background: white;
-            border-radius: 12px;
-            padding: 8px 10px;
-            text-align: center;
-            border: 1px solid #d4e6d4;
-        }
-
-        .bonus-item .b-label {
-            font-size: 0.55rem;
-            font-weight: 700;
-            color: #6c7a5a;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .bonus-item .b-value {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-
         .hidden {
             display: none !important;
         }
 
-        /* ===== MODAL ===== */
         #customModal {
             display: none;
             position: fixed;
@@ -498,7 +459,6 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 6px;
             }
-            .download-info,
             .spin-section,
             .howto-section,
             .faq-section {
@@ -561,7 +521,6 @@
         <!-- ===== PAGE 2: DETAILED DOWNLOAD PAGE ===== -->
         <div id="page2" class="hidden">
             <div class="card">
-                <!-- App Icon -->
                 <div class="app-icon">
                     <img src="https://i.ibb.co/LDWqbqc3/yono-game-icon.jpg" alt="Yono Games" loading="lazy" onerror="this.src='https://via.placeholder.com/90?text=Yono'">
                 </div>
@@ -586,14 +545,14 @@
                     </div>
                 </div>
 
-                <!-- ===== SPIN & WIN SECTION ===== -->
+                <!-- ===== SPIN & WIN ===== -->
                 <div class="spin-section">
                     <span class="section-title">🎰 Spin & Win with Yono Games!</span>
                     <p style="font-size:0.78rem;color:#2d3e2b;line-height:1.6;">Huge jackpots, free spins, and <strong>₹45</strong> joining bonus. Play premium slot machines and withdraw your winnings instantly.</p>
                     <p style="font-size:0.78rem;color:#2d3e2b;line-height:1.6;margin-top:6px;"><strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.</p>
                 </div>
 
-                <!-- ===== BONUS INFO GRID ===== -->
+                <!-- ===== BONUS GRID ===== -->
                 <div class="bonus-grid">
                     <div class="bonus-item">
                         <div class="b-label">🎁 Bonus Name</div>
@@ -633,7 +592,7 @@
                     </ol>
                 </div>
 
-                <!-- ===== FAQ SECTION ===== -->
+                <!-- ===== FAQ ===== -->
                 <div class="faq-section">
                     <span class="section-title">❓ Frequently Asked Questions</span>
 
