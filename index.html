@@ -1,3 +1,4 @@
+999
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +74,7 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* ====== 5 INFO BOXES ====== */
+    /* ====== 5 INFO BOXES - Dynamic Game Name ====== */
     .info-boxes { padding: 12px; background: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
     .info-box { background: white; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
     .info-box .box-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -177,21 +178,21 @@
       </div>
     </div>
     
-    <!-- ====== 5 INFO BOXES ====== -->
-    <div class="info-boxes">
-      <!-- Box 1: MBM Bet Overview -->
+    <!-- ====== 5 INFO BOXES - DYNAMIC GAME NAME ====== -->
+    <div class="info-boxes" id="infoBoxes">
+      <!-- Box 1: Game Overview -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">🚀</span> MBM Bet (Yono) – Premium Gaming</div>
-        <div class="box-content">
-          <strong>MBM Bet (Yono)</strong> provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The update version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, MBM Bet stands out as one of the strongest earning apps in the Yono series.
+        <div class="box-title"><span class="icon">🚀</span> <span id="box1Title">Game Name</span> – Premium Gaming</div>
+        <div class="box-content" id="box1Content">
+          <strong id="box1Strong">Game Name</strong> provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The update version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, <span id="box1Name">Game Name</span> stands out as one of the strongest earning apps in the Yono series.
         </div>
       </div>
       
-      <!-- Box 2: About MBM Bet -->
+      <!-- Box 2: About Game -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">📱</span> About MBM Bet</div>
-        <div class="box-content">
-          <strong>MBM Bet Apk</strong> is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.<br><br>
+        <div class="box-title"><span class="icon">📱</span> About <span id="box2Title">Game Name</span></div>
+        <div class="box-content" id="box2Content">
+          <strong id="box2Strong">Game Name</strong> is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.<br><br>
           The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.
         </div>
       </div>
@@ -213,9 +214,9 @@
       
       <!-- Box 4: How to Download APK & Install -->
       <div class="info-box">
-        <div class="box-title"><span class="icon">📥</span> How to Download APK & Install</div>
-        <div class="box-content">
-          Downloading MBM Bet is simple and straightforward. Follow these easy steps:<br><br>
+        <div class="box-title"><span class="icon">📥</span> How to Download <span id="box4Title">Game Name</span> APK & Install</div>
+        <div class="box-content" id="box4Content">
+          Downloading <span id="box4Name">Game Name</span> is simple and straightforward. Follow these easy steps:<br><br>
           <strong>1.</strong> Click on the download button above<br>
           <strong>2.</strong> Allow installation from unknown sources in your device settings<br>
           <strong>3.</strong> Install the APK file once downloaded<br>
@@ -229,7 +230,7 @@
       <div class="info-box">
         <div class="box-title"><span class="icon">🔒</span> Safety & Security</div>
         <div class="box-content">
-          Your safety and security are our top priorities. <strong>MBM Bet APK</strong> uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>
+          Your safety and security are our top priorities. <strong id="box5Strong">Game Name</strong> uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe.<br><br>
           The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.
         </div>
       </div>
@@ -422,6 +423,17 @@
       document.getElementById('detailSize').textContent = '📦 ' + (game.size || '45 MB');
       document.getElementById('detailVotes').textContent = '👍 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
+      
+      // ====== UPDATE ALL 5 BOXES WITH GAME NAME ======
+      const gameName = game.name;
+      document.getElementById('box1Title').textContent = gameName;
+      document.getElementById('box1Strong').textContent = gameName;
+      document.getElementById('box1Name').textContent = gameName;
+      document.getElementById('box2Title').textContent = gameName;
+      document.getElementById('box2Strong').textContent = gameName;
+      document.getElementById('box4Title').textContent = gameName;
+      document.getElementById('box4Name').textContent = gameName;
+      document.getElementById('box5Strong').textContent = gameName;
       
       // Related - all other games
       const relatedGrid = document.getElementById('relatedGrid');
