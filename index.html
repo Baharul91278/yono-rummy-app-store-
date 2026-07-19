@@ -18,7 +18,7 @@
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; }
     
-    /* Top Header: Left logo+name only (NO HOME button) */
+    /* Top Header: Left logo+name only */
     .top-header { display: flex; justify-content: flex-start; align-items: center; padding: 8px 12px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
     .header-left { display: flex; align-items: center; gap: 8px; }
     .header-left .logo-img { width: 38px; height: 38px; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
@@ -26,7 +26,7 @@
     .header-left .site-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; line-height: 1.2; }
     .header-left .site-name small { display: block; font-weight: 400; font-size: 0.5rem; color: #64748b; }
     
-    /* 4 small nav links: HOME | ABOUT | CONTACT | DISCLAIMER */
+    /* 4 small nav links */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #f8fafc; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
     .nav-small { font-size: 0.55rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; text-decoration: none; transition: 0.15s; white-space: nowrap; }
     .nav-small:active { transform: scale(0.95); }
@@ -38,7 +38,7 @@
     .back-btn:active { transform: scale(0.95); }
     .game-detail-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; }
     
-    /* Game Detail Card - New style with Game Name, Sign Up Bonus (Red), Min Withdrawal (Black) */
+    /* Detail Card */
     .detail-card { background: white; padding: 16px; border-bottom: 1px solid #e9edf4; }
     .detail-top { display: flex; gap: 14px; align-items: center; }
     .detail-img { width: 72px; height: 72px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
@@ -75,17 +75,19 @@
     .related-item .rname { font-weight: 600; font-size: 0.7rem; flex: 1; }
     .related-item .rbonus { font-size: 0.55rem; color: #dc2626; background: #fee2e2; padding: 1px 8px; border-radius: 40px; }
     
-    #mainGrid { display: flex; flex-direction: column; gap: 10px; padding: 10px; }
-    .card { background: white; border-radius: 16px; padding: 8px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 8px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; }
+    /* MAIN GRID - new style: game name top, signup bonus (red), min withdraw (black), download */
+    #mainGrid { display: flex; flex-direction: column; gap: 8px; padding: 10px; }
+    .card { background: white; border-radius: 14px; padding: 10px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #e9edf4; text-decoration: none; color: inherit; }
     .card:active { transform: scale(0.97); background: #fafcff; }
     .card-img { width: 48px; height: 48px; border-radius: 12px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-info { flex: 1; }
+    .card-info { flex: 1; display: flex; flex-direction: column; gap: 1px; }
     .card-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; }
-    .card-meta { display: flex; flex-wrap: wrap; gap: 3px 6px; font-size: 0.55rem; color: #475569; margin-top: 1px; }
-    .card-meta span { background: #f1f5f9; padding: 1px 6px; border-radius: 40px; }
-    .card-meta .bonus { background: #fee2e2; color: #dc2626; }
-    .card-download-sm { background: #0a0a0a; color: white; border: none; padding: 3px 10px; border-radius: 40px; font-weight: 600; font-size: 0.5rem; white-space: nowrap; }
+    .card-bonus { font-size: 0.65rem; color: #dc2626; font-weight: 600; }
+    .card-withdraw { font-size: 0.6rem; color: #0a0a0a; font-weight: 500; }
+    .card-download-sm { background: #0a0a0a; color: white; border: none; padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; white-space: nowrap; }
+    .card-download-sm:active { transform: scale(0.95); }
+    
     .footer-note { padding: 12px; text-align: center; color: #94a3b8; font-size: 0.55rem; border-top: 1px solid #e9edf4; }
     
     /* Overlay */
@@ -101,6 +103,9 @@
       .detail-img { width: 60px; height: 60px; }
       .tags-grid { grid-template-columns: 1fr 1fr; }
       .detail-info .game-name { font-size: 1rem; }
+      .card-name { font-size: 0.7rem; }
+      .card-bonus { font-size: 0.55rem; }
+      .card-withdraw { font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -114,7 +119,7 @@
     </div>
   </div>
 
-  <!-- 4 small nav links: HOME | ABOUT | CONTACT | DISCLAIMER -->
+  <!-- 4 small nav links -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">🏠 Home</span>
     <span class="nav-small" data-target="about">About</span>
@@ -125,7 +130,7 @@
   <!-- Main Grid -->
   <div id="mainGrid"></div>
 
-  <!-- Detail View (hidden by default) -->
+  <!-- Detail View -->
   <div id="detailView" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
@@ -301,14 +306,25 @@
 
         const infoDiv = document.createElement('div');
         infoDiv.className = 'card-info';
+        
+        // Game name (top)
         const nameDiv = document.createElement('div');
         nameDiv.className = 'card-name';
         nameDiv.textContent = game.name;
-        const metaDiv = document.createElement('div');
-        metaDiv.className = 'card-meta';
-        metaDiv.innerHTML = `<span class="bonus">🔴 ${game.bonus}</span><span>💰 ${game.withdrawal}</span>`;
+        
+        // Sign Up Bonus (red, below name)
+        const bonusDiv = document.createElement('div');
+        bonusDiv.className = 'card-bonus';
+        bonusDiv.textContent = '🔴 Sign Up Bonus ' + game.bonus;
+        
+        // Min Withdrawal (black, below bonus)
+        const withdrawDiv = document.createElement('div');
+        withdrawDiv.className = 'card-withdraw';
+        withdrawDiv.textContent = '💰 Min. Withdraw ' + game.withdrawal;
+        
         infoDiv.appendChild(nameDiv);
-        infoDiv.appendChild(metaDiv);
+        infoDiv.appendChild(bonusDiv);
+        infoDiv.appendChild(withdrawDiv);
 
         const downloadBtn = document.createElement('span');
         downloadBtn.className = 'card-download-sm';
