@@ -35,7 +35,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; }
+    .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; overflow: hidden; }
     
     .top-header { display: flex; justify-content: flex-start; align-items: center; padding: 8px 12px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
     .header-left { display: flex; align-items: center; gap: 8px; }
@@ -44,11 +44,11 @@
     .header-left .site-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; line-height: 1.2; }
     .header-left .site-name small { display: block; font-weight: 400; font-size: 0.5rem; color: #64748b; }
     
-    /* ====== SEARCH BAR ====== */
-    .search-container { padding: 10px 12px; background: #f8fafc; border-bottom: 1px solid #e9edf4; }
-    .search-container input { width: 100%; padding: 8px 14px; border-radius: 40px; border: 1px solid #e2e8f0; font-size: 0.8rem; outline: none; background: white; transition: 0.2s; }
-    .search-container input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-    .search-container input::placeholder { color: #94a3b8; }
+    /* ====== MARQUEE: Game Names Moving Right to Left ====== */
+    .marquee-container { background: #1e293b; padding: 6px 0; overflow: hidden; border-bottom: 1px solid #e9edf4; }
+    .marquee-container marquee { color: #f8fafc; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; }
+    .marquee-container marquee span { margin: 0 20px; }
+    .marquee-container marquee .highlight { color: #facc15; }
     
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #f8fafc; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
     .nav-small { font-size: 0.55rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; text-decoration: none; transition: 0.15s; white-space: nowrap; }
@@ -121,9 +121,6 @@
     .info-card p { color: #334155; line-height: 1.6; font-size: 0.85rem; }
     .info-card .close-btn { background: #eef2ff; border: none; padding: 6px 18px; border-radius: 60px; font-weight: 600; margin-top: 14px; cursor: pointer; color: #1e293b; border: 1px solid #cbd5e1; font-size: 0.8rem; }
     
-    /* Hide search results when detail view is open */
-    #detailView .search-container { display: none; }
-    
     @media (max-width: 420px) {
       .header-left .site-name { font-size: 0.7rem; }
       .nav-small { font-size: 0.45rem; padding: 2px 6px; }
@@ -133,7 +130,7 @@
       .card-bonus { font-size: 0.55rem; }
       .card-withdraw { font-size: 0.5rem; }
       .info-box .box-content { font-size: 0.7rem; }
-      .search-container input { font-size: 0.7rem; padding: 6px 12px; }
+      .marquee-container marquee { font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -147,17 +144,55 @@
     </div>
   </div>
 
+  <!-- ====== MARQUEE: Game Names Moving Right to Left ====== -->
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left" scrollamount="4" truespeed>
+      <span class="highlight">🏆 All Yono Games Site</span>
+      <span>🎰 567 Slots</span>
+      <span>🎰 Saga Slots</span>
+      <span>🎰 Jaiho 91</span>
+      <span>🃏 Rummy Ludo</span>
+      <span>🃏 ABC Rummy</span>
+      <span>🃏 Rummy 91</span>
+      <span>🃏 Love Rummy</span>
+      <span>🎰 Spin Crush</span>
+      <span>🃏 Top Rummy</span>
+      <span>🃏 Hello Rummy</span>
+      <span>🃏 Rummy 365</span>
+      <span>🃏 Teen Patti Gold</span>
+      <span>🃏 Teen Patti Master</span>
+      <span>🃏 Yono Rummy</span>
+      <span>🎰 Slots Winner</span>
+      <span>🎰 Good Slots</span>
+      <span>🎰 Diwa Slot</span>
+      <span>🃏 GoGo Rummy</span>
+      <span>🃏 Joy Rummy</span>
+      <span>🎰 Spin Gold</span>
+      <span>🎰 Bingo 101</span>
+      <span>🎰 Yes Spin</span>
+      <span>🎰 Yono Arcade</span>
+      <span>🎰 SVIP 777</span>
+      <span>🃏 OK Rummy</span>
+      <span>🎰 Hind 777</span>
+      <span>🎰 Bet 213</span>
+      <span>🃏 Boss Rummy</span>
+      <span>🎰 Yono 777</span>
+      <span>🎰 Diwa VIP</span>
+      <span>🎰 Diwa 777</span>
+      <span>🎰 Yono Games</span>
+      <span>🃏 INR Rummy</span>
+      <span>🎰 Slots Winner Pro</span>
+      <span>🎰 MBM BET</span>
+      <span class="highlight">🔥 Download Now!</span>
+    </marquee>
+  </div>
+
   <!-- 4 nav links -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">🏠 Home</span>
     <span class="nav-small" data-target="about">About</span>
     <span class="nav-small" data-target="contact">Contact</span>
     <span class="nav-small" data-target="disclaimer">Disclaimer</span>
-  </div>
-
-  <!-- ====== SEARCH BAR ====== -->
-  <div class="search-container" id="searchContainer">
-    <input type="text" id="searchInput" placeholder="🔍 Search games... (567 Slots, Saga Slots, Jaiho 91, Rummy...)" onkeyup="filterGames()">
   </div>
 
   <!-- Main Grid -->
@@ -322,7 +357,6 @@
     const detailView = document.getElementById('detailView');
     const backBtn = document.getElementById('backBtn');
     const homeNav = document.getElementById('homeNav');
-    const searchInput = document.getElementById('searchInput');
 
     const overlay = document.getElementById('infoOverlay');
     const overlayTitle = document.getElementById('overlayTitle');
@@ -351,12 +385,9 @@
     homeNav.addEventListener('click', function() {
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
-      document.getElementById('searchContainer').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
-      searchInput.value = '';
-      filterGames();
     });
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
@@ -370,11 +401,9 @@
     }
 
     let historyStack = [];
-    let allCards = [];
 
     function renderGrid() {
       mainGrid.innerHTML = '';
-      allCards = [];
       uniqueGames.forEach(game => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -423,29 +452,14 @@
         card.appendChild(infoDiv);
         card.appendChild(downloadBtn);
         mainGrid.appendChild(card);
-        allCards.push(card);
       });
     }
     renderGrid();
-
-    // ====== SEARCH FILTER FUNCTION ======
-    window.filterGames = function() {
-      const query = searchInput.value.toLowerCase().trim();
-      allCards.forEach(card => {
-        const name = card.dataset.name.toLowerCase();
-        if (name.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    };
 
     function showDetail(game) {
       historyStack.push('detail');
       
       mainGrid.style.display = 'none';
-      document.getElementById('searchContainer').style.display = 'none';
       detailView.style.display = 'block';
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').textContent = game.name;
@@ -458,6 +472,7 @@
       document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
+      // ====== UPDATE ALL 5 BOXES WITH GAME NAME ======
       const gameName = game.name;
       document.getElementById('box1Title').textContent = gameName;
       document.getElementById('box1Strong').textContent = gameName;
@@ -468,6 +483,7 @@
       document.getElementById('box4Name').textContent = gameName;
       document.getElementById('box5Strong').textContent = gameName;
       
+      // Related - all other games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -530,6 +546,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Main grid card clicks
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -552,21 +569,15 @@
         historyStack.pop();
         detailView.style.display = 'none';
         mainGrid.style.display = 'flex';
-        document.getElementById('searchContainer').style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
         document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
         document.getElementById('homeNav').classList.add('active');
-        searchInput.value = '';
-        filterGames();
       } else {
         detailView.style.display = 'none';
         mainGrid.style.display = 'flex';
-        document.getElementById('searchContainer').style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
         document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
         document.getElementById('homeNav').classList.add('active');
-        searchInput.value = '';
-        filterGames();
       }
     }
 
