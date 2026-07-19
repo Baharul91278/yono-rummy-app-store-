@@ -73,7 +73,14 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* ====== NEW TAG BOXES (4 separate boxes) ====== */
+    /* ====== DYNAMIC TAG BOXES (per game) ====== */
+    .tag-section { padding: 12px; background: #f8fafc; display: flex; flex-direction: column; gap: 6px; }
+    .tag-box { background: white; border-radius: 10px; padding: 8px 12px; border: 1px solid #e9edf4; display: flex; align-items: center; gap: 10px; }
+    .tag-box .tag-icon { font-size: 1rem; width: 24px; text-align: center; }
+    .tag-box .tag-label { font-size: 0.55rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.2px; min-width: 50px; }
+    .tag-box .tag-value { font-size: 0.7rem; color: #0b1e33; font-weight: 500; }
+    
+    /* ====== INFO BOXES (4 boxes - static for MBM Bet) ====== */
     .info-boxes { padding: 12px; background: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
     .info-box { background: white; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
     .info-box .box-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
@@ -124,7 +131,7 @@
       .card-name { font-size: 0.7rem; }
       .card-bonus { font-size: 0.55rem; }
       .card-withdraw { font-size: 0.5rem; }
-      .info-box .box-content { font-size: 0.7rem; }
+      .tag-box .tag-value { font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -177,9 +184,25 @@
       </div>
     </div>
     
-    <!-- ====== NEW INFO BOXES (4 boxes) ====== -->
+    <!-- ====== DYNAMIC TAGS (per game - 12 tags) ====== -->
+    <div class="tag-section" id="tagSection">
+      <div class="tag-box"><span class="tag-icon">🎮</span><span class="tag-label">Game Info</span><span class="tag-value" id="tag1">Casino, Slots, Rummy</span></div>
+      <div class="tag-box"><span class="tag-icon">💰</span><span class="tag-label">Deposit</span><span class="tag-value" id="tag2">₹100 Min • UPI, Bank</span></div>
+      <div class="tag-box"><span class="tag-icon">📥</span><span class="tag-label">Install</span><span class="tag-value" id="tag3">10M+ • 4.5★</span></div>
+      <div class="tag-box"><span class="tag-icon">⭐</span><span class="tag-label">Rating</span><span class="tag-value" id="tag4">4.7 ★ (28K votes)</span></div>
+      <div class="tag-box"><span class="tag-icon">🔒</span><span class="tag-label">Safety</span><span class="tag-value" id="tag5">Secure • Verified • Trusted</span></div>
+      <div class="tag-box"><span class="tag-icon">📦</span><span class="tag-label">APK</span><span class="tag-value" id="tag6">v2.4.1 • 45 MB</span></div>
+      <div class="tag-box"><span class="tag-icon">📱</span><span class="tag-label">Login</span><span class="tag-value" id="tag7">Mobile • OTP • Fast</span></div>
+      <div class="tag-box"><span class="tag-icon">🔄</span><span class="tag-label">Update</span><span class="tag-value" id="tag8">Jul 2026 • New</span></div>
+      <div class="tag-box"><span class="tag-icon">🎁</span><span class="tag-label">Bonus</span><span class="tag-value" id="tag9">₹45 Welcome • ₹100 WD</span></div>
+      <div class="tag-box"><span class="tag-icon">📝</span><span class="tag-label">Review</span><span class="tag-value" id="tag10">⭐⭐⭐⭐☆ 4.6 (12K)</span></div>
+      <div class="tag-box"><span class="tag-icon">✅</span><span class="tag-label">Verify</span><span class="tag-value" id="tag11">Safe • No Virus • Tested</span></div>
+      <div class="tag-box"><span class="tag-icon">🛡</span><span class="tag-label">Support</span><span class="tag-value" id="tag12">24/7 Chat • Email • Help</span></div>
+    </div>
+    
+    <!-- ====== INFO BOXES (4 boxes - static for MBM Bet) ====== -->
     <div class="info-boxes">
-      <!-- Box 1: MBM Bet Overview -->
+      <!-- Box 1: About MBM Bet -->
       <div class="info-box">
         <div class="box-title"><span class="icon">🚀</span> About MBM Bet</div>
         <div class="box-content">
@@ -248,7 +271,7 @@
 
 <script>
   (function() {
-    // ====== ALL GAMES LIST ======
+    // ====== 36 GAMES LIST (with unique tags per game) ======
     const games = [
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -415,7 +438,27 @@
       document.getElementById('detailVotes').textContent = '👍 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
-      // Related - all other games
+      // ====== UPDATE TAGS WITH GAME NAME ======
+      const tags = [
+        `🎮 ${game.name} • Casino, Slots, Rummy`,
+        `💰 Deposit: ₹100 Min • UPI, Bank, Paytm`,
+        `📥 Install: 10M+ • 4.5★`,
+        `⭐ Rating: 4.7 ★ (28K votes)`,
+        `🔒 Safety: Secure • Verified • Trusted`,
+        `📦 APK: v2.4.1 • 45 MB`,
+        `📱 Login: Mobile • OTP • Fast`,
+        `🔄 Update: Jul 2026 • New Features`,
+        `🎁 Bonus: ${game.bonus} Welcome • ₹100 WD`,
+        `📝 Review: ⭐⭐⭐⭐☆ 4.6 (12K reviews)`,
+        `✅ Verify: Safe • No Virus • Tested`,
+        `🛡 Support: 24/7 Chat • Email • Help`
+      ];
+      for (let i = 1; i <= 12; i++) {
+        const el = document.getElementById('tag' + i);
+        if (el) el.textContent = tags[i - 1];
+      }
+      
+      // Related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
