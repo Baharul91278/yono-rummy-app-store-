@@ -1,3 +1,4 @@
+00
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,119 +38,32 @@
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; overflow: hidden; }
     
-    /* ====== TOP HEADER: Logo Left | Site Name + Share Right ====== */
-    .top-header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      padding: 8px 12px; 
-      background: white; 
-      border-bottom: 1px solid #e9edf4; 
-      position: sticky; 
-      top: 0; 
-      z-index: 10; 
-    }
+    .top-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
     .header-left { display: flex; align-items: center; gap: 8px; }
     .header-left .logo-img { width: 38px; height: 38px; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
     .header-left .logo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .header-left .site-name { font-weight: 700; font-size: 0.8rem; color: #0b1e33; line-height: 1.2; }
     .header-left .site-name small { display: block; font-weight: 400; font-size: 0.5rem; color: #64748b; }
-    
-    .header-right { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-    }
-    .header-right .domain-name { 
-      font-weight: 600; 
-      font-size: 0.6rem; 
-      color: #1e293b; 
-      background: #f1f5f9; 
-      padding: 3px 10px; 
-      border-radius: 40px; 
-      border: 1px solid #e2e8f0;
-      white-space: nowrap;
-    }
-    .share-btn { 
-      background: #1e293b; 
-      color: white; 
-      border: none; 
-      padding: 4px 12px; 
-      border-radius: 40px; 
-      font-weight: 600; 
-      font-size: 0.55rem; 
-      cursor: pointer; 
-      display: flex; 
-      align-items: center; 
-      gap: 4px;
-      white-space: nowrap;
-      transition: 0.15s;
-    }
+    .header-right { display: flex; align-items: center; gap: 10px; }
+    .header-right .domain-name { font-weight: 600; font-size: 0.6rem; color: #1e293b; background: #f1f5f9; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; white-space: nowrap; }
+    .share-btn { background: #1e293b; color: white; border: none; padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: 0.15s; }
     .share-btn:active { transform: scale(0.95); }
     .share-btn svg { width: 14px; height: 14px; fill: white; }
     
-    /* ====== MARQUEE: All Game Names Moving Right to Left ====== */
-    .marquee-container { 
-      background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); 
-      padding: 8px 0; 
-      overflow: hidden; 
-      border-bottom: 2px solid #e9edf4; 
-      box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .marquee-container marquee { 
-      color: #ffffff; 
-      font-size: 0.8rem; 
-      font-weight: 700; 
-      letter-spacing: 1px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-    .marquee-container marquee span { 
-      margin: 0 25px; 
-      display: inline-block;
-    }
-    .marquee-container marquee .highlight { 
-      color: #facc15; 
-      background: rgba(0,0,0,0.2);
-      padding: 2px 12px;
-      border-radius: 20px;
-    }
+    .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 8px 0; overflow: hidden; border-bottom: 2px solid #e9edf4; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1); }
+    .marquee-container marquee { color: #ffffff; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+    .marquee-container marquee span { margin: 0 25px; display: inline-block; }
+    .marquee-container marquee .highlight { color: #facc15; background: rgba(0,0,0,0.2); padding: 2px 12px; border-radius: 20px; }
     
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #f8fafc; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
     .nav-small { font-size: 0.55rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 10px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; text-decoration: none; transition: 0.15s; white-space: nowrap; }
     .nav-small:active { transform: scale(0.95); }
     .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
     
-    /* ====== BACK + GAME NAME (Right Side) - WHITE TEXT ====== */
-    .game-detail-header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      padding: 8px 14px; 
-      background: #f8fafc; 
-      border-bottom: 1px solid #e9edf4; 
-    }
-    .back-btn { 
-      background: #eef2ff; 
-      border: none; 
-      padding: 3px 12px; 
-      border-radius: 40px; 
-      font-weight: 600; 
-      font-size: 0.65rem; 
-      color: #1e293b; 
-      cursor: pointer; 
-    }
+    .game-detail-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e9edf4; }
+    .back-btn { background: #eef2ff; border: none; padding: 3px 12px; border-radius: 40px; font-weight: 600; font-size: 0.65rem; color: #1e293b; cursor: pointer; }
     .back-btn:active { transform: scale(0.95); }
-    .game-detail-title { 
-      font-weight: 700; 
-      font-size: 0.75rem; 
-      color: #ffffff !important; 
-      background: #1e293b; 
-      padding: 4px 14px; 
-      border-radius: 40px; 
-      cursor: pointer;
-      white-space: nowrap;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
+    .game-detail-title { font-weight: 700; font-size: 0.7rem; color: #ffffff !important; background: #1e293b; padding: 4px 14px; border-radius: 40px; cursor: pointer; white-space: nowrap; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
     .game-detail-title:active { transform: scale(0.95); }
     
     .detail-card { background: white; padding: 16px; border-bottom: 1px solid #e9edf4; }
@@ -227,13 +141,13 @@
       .info-box .box-content { font-size: 0.7rem; }
       .marquee-container marquee { font-size: 0.6rem; }
       .marquee-container marquee span { margin: 0 15px; }
-      .game-detail-title { font-size: 0.55rem; padding: 3px 10px; }
+      .game-detail-title { font-size: 0.5rem; padding: 3px 10px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- ====== TOP HEADER: Logo Left | Site Name + Share Right ====== -->
+  <!-- TOP HEADER -->
   <div class="top-header">
     <div class="header-left">
       <div class="logo-img"><img src="https://i.ibb.co/CssC2WbG/1000022725.jpg" alt="All Yono Games Site" loading="eager"></div>
@@ -248,50 +162,27 @@
     </div>
   </div>
 
-  <!-- ====== MARQUEE: All Game Names Moving Right to Left ====== -->
+  <!-- MARQUEE -->
   <div class="marquee-container">
     <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
       <span class="highlight">🏆 All Yono Games Site</span>
-      <span>🎰 567 Slots</span>
-      <span>🎰 Saga Slots</span>
-      <span>🎰 Jaiho 91</span>
-      <span>🃏 Rummy Ludo</span>
-      <span>🃏 ABC Rummy</span>
-      <span>🃏 Rummy 91</span>
-      <span>🃏 Love Rummy</span>
-      <span>🎰 Spin Crush</span>
-      <span>🃏 Top Rummy</span>
-      <span>🃏 Hello Rummy</span>
-      <span>🃏 Rummy 365</span>
-      <span>🃏 Teen Patti Gold</span>
-      <span>🃏 Teen Patti Master</span>
-      <span>🃏 Yono Rummy</span>
-      <span>🎰 Slots Winner</span>
-      <span>🎰 Good Slots</span>
-      <span>🎰 Diwa Slot</span>
-      <span>🃏 GoGo Rummy</span>
-      <span>🃏 Joy Rummy</span>
-      <span>🎰 Spin Gold</span>
-      <span>🎰 Bingo 101</span>
-      <span>🎰 Yes Spin</span>
-      <span>🎰 Yono Arcade</span>
-      <span>🎰 SVIP 777</span>
-      <span>🃏 OK Rummy</span>
-      <span>🎰 Hind 777</span>
-      <span>🎰 Bet 213</span>
-      <span>🃏 Boss Rummy</span>
-      <span>🎰 Yono 777</span>
-      <span>🎰 Diwa VIP</span>
-      <span>🎰 Diwa 777</span>
-      <span>🎰 Yono Games</span>
-      <span>🃏 INR Rummy</span>
-      <span>🎰 Slots Winner Pro</span>
-      <span>🎰 MBM BET</span>
+      <span>🎰 567 Slots</span><span>🎰 Saga Slots</span><span>🎰 Jaiho 91</span>
+      <span>🃏 Rummy Ludo</span><span>🃏 ABC Rummy</span><span>🃏 Rummy 91</span>
+      <span>🃏 Love Rummy</span><span>🎰 Spin Crush</span><span>🃏 Top Rummy</span>
+      <span>🃏 Hello Rummy</span><span>🃏 Rummy 365</span><span>🃏 Teen Patti Gold</span>
+      <span>🃏 Teen Patti Master</span><span>🃏 Yono Rummy</span><span>🎰 Slots Winner</span>
+      <span>🎰 Good Slots</span><span>🎰 Diwa Slot</span><span>🃏 GoGo Rummy</span>
+      <span>🃏 Joy Rummy</span><span>🎰 Spin Gold</span><span>🎰 Bingo 101</span>
+      <span>🎰 Yes Spin</span><span>🎰 Yono Arcade</span><span>🎰 SVIP 777</span>
+      <span>🃏 OK Rummy</span><span>🎰 Hind 777</span><span>🎰 Bet 213</span>
+      <span>🃏 Boss Rummy</span><span>🎰 Yono 777</span><span>🎰 Diwa VIP</span>
+      <span>🎰 Diwa 777</span><span>🎰 Yono Games</span><span>🃏 INR Rummy</span>
+      <span>🎰 Slots Winner Pro</span><span>🎰 MBM BET</span>
       <span class="highlight">🔥 Download Now!</span>
     </marquee>
   </div>
 
-  <!-- 4 nav links -->
+  <!-- NAV -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">🏠 Home</span>
     <span class="nav-small" data-target="about">About</span>
@@ -299,14 +190,14 @@
     <span class="nav-small" data-target="disclaimer">Disclaimer</span>
   </div>
 
-  <!-- Main Grid -->
+  <!-- MAIN GRID -->
   <div id="mainGrid"></div>
 
-  <!-- Detail View -->
+  <!-- DETAIL VIEW -->
   <div id="detailView" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
-      <span class="game-detail-title" id="detailTitle">Download Game APK • Welcome ₹45 Bonus</span>
+      <span class="game-detail-title" id="detailTitle">Download APK • Welcome Bonus</span>
     </div>
     <div class="detail-card">
       <div class="detail-top">
@@ -330,7 +221,6 @@
       </div>
     </div>
     
-    <!-- ====== 5 INFO BOXES - DYNAMIC GAME NAME ====== -->
     <div class="info-boxes" id="infoBoxes">
       <div class="info-box">
         <div class="box-title"><span class="icon">🚀</span> <span id="box1Title">Game Name</span> – Best Apk</div>
@@ -338,7 +228,6 @@
           <strong id="box1Strong">Game Name</strong> provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The update version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, <span id="box1Name">Game Name</span> stands out as one of the strongest earning apps in the Yono series.
         </div>
       </div>
-      
       <div class="info-box">
         <div class="box-title"><span class="icon">📱</span> About <span id="box2Title">Game Name</span></div>
         <div class="box-content" id="box2Content">
@@ -346,7 +235,6 @@
           The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial financial rewards.
         </div>
       </div>
-      
       <div class="info-box">
         <div class="box-title"><span class="icon">✨</span> Key Features & Benefits</div>
         <div class="box-content">
@@ -360,7 +248,6 @@
           </ul>
         </div>
       </div>
-      
       <div class="info-box">
         <div class="box-title"><span class="icon">📥</span> How to Download <span id="box4Title">Game Name</span> APK & Install</div>
         <div class="box-content" id="box4Content">
@@ -373,7 +260,6 @@
           <strong>6.</strong> Claim your welcome bonus of ₹39
         </div>
       </div>
-      
       <div class="info-box">
         <div class="box-title"><span class="icon">🔒</span> Safety & Security</div>
         <div class="box-content">
@@ -383,7 +269,6 @@
       </div>
     </div>
     
-    <!-- Other Related -->
     <div class="related-section">
       <div class="related-title">💲 Other Related Games</div>
       <div class="related-grid" id="relatedGrid"></div>
@@ -393,7 +278,7 @@
   <div class="footer-note">All Yono Games Site • Premium SEO • 700+ Tags</div>
 </div>
 
-<!-- Overlay -->
+<!-- OVERLAY -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -404,14 +289,15 @@
 
 <script>
   (function() {
-    // ====== ALL GAMES LIST ======
+    // ====== ALL GAMES LIST with UNIQUE BONUSES ======
     const games = [
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
+      { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg" },
+      { name: "Rummy Ludo", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://rummyludoapp37.com/", img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg" },
+      { name: "ABC Rummy", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg" },
       { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
       { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg" },
       { name: "Jaiho 91", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg" },
-      { name: "Rummy Ludo", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://rummyludoapp37.com/", img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg" },
-      { name: "ABC Rummy", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg" },
       { name: "Rummy 91", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk", img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg" },
       { name: "Love Rummy", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg" },
       { name: "Spin Crush", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg" },
@@ -437,7 +323,6 @@
       { name: "Boss Rummy", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg" },
       { name: "Yono 777", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg" },
       { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg" },
-      { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg" },
       { name: "Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", img: "https://i.ibb.co/LXqV77rd/yono-games.jpg" },
       { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg" },
       { name: "Slots Winner Pro", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1784299271", img: "https://i.ibb.co/wNYf5LG8/slots-winner.jpg" },
@@ -562,7 +447,7 @@
       detailView.style.display = 'block';
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').textContent = game.name;
-      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ₹45 Bonus';
+      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ' + game.bonus + ' Bonus';
       document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
       document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
       document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
@@ -696,7 +581,6 @@
 
     history.pushState(null, null, location.href);
 
-    // ====== SHARE BUTTON FUNCTIONALITY ======
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
@@ -705,7 +589,6 @@
           url: 'https://allyonogamessite.com/'
         }).catch(() => {});
       } else {
-        // Fallback - copy link to clipboard
         const url = 'https://allyonogamessite.com/';
         navigator.clipboard.writeText(url).then(() => {
           alert('Link copied to clipboard! Share it with your friends.');
