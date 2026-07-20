@@ -1,4 +1,4 @@
-000
+000000000ppp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,7 +447,6 @@
       disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono Games Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Gambling may be subject to legal restrictions in your region. Play responsibly.' }
     };
 
-    // ====== NAV LINKS - About, Contact, Disclaimer ======
     document.querySelectorAll('.nav-small[data-target]').forEach(el => {
       el.addEventListener('click', function() {
         const key = this.dataset.target;
@@ -461,15 +460,15 @@
       });
     });
 
-    // ====== HOME NAV ======
     homeNav.addEventListener('click', function() {
-      // Clear history and go to main grid
+      // Reset history stack and go home
       historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
+      history.pushState(null, null, location.href);
     });
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
@@ -482,7 +481,7 @@
       return num + 'K';
     }
 
-    // ====== HISTORY STACK - supports unlimited back navigation ======
+    // ====== HISTORY STACK ======
     let historyStack = [];
 
     // ====== TOC TOGGLE ======
@@ -493,7 +492,6 @@
       arrow.classList.toggle('open');
     });
 
-    // ====== RENDER MAIN GRID ======
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -576,9 +574,10 @@
       };
     }
 
-    // ====== SHOW DETAIL - PUSH TO HISTORY STACK ======
+    // ====== SHOW DETAIL WITH HISTORY MANAGEMENT ======
     function showDetail(game, pushHistory = true) {
       if (pushHistory) {
+        // Push the current game data onto the history stack before showing the new one
         historyStack.push(game);
       }
 
@@ -655,7 +654,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // Populate game tags (clickable for unlimited back navigation)
+      // Populate game tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -682,12 +681,12 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true); // Push to history
+          showDetail(gData, true);
         });
         tagsContainer.appendChild(tag);
       });
       
-      // Related games (clickable for unlimited back navigation)
+      // Related games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -744,13 +743,13 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true); // Push to history
+          showDetail(gData, true);
         });
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ====== MAIN GRID CARD CLICKS ======
+    // Main grid clicks
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -764,11 +763,11 @@
           size: this.dataset.size,
           votes: this.dataset.votes
         };
-        showDetail(gData, true); // Push to history
+        showDetail(gData, true);
       });
     });
 
-    // ====== DOWNLOAD TITLE CLICK ======
+    // Click on detail title to download
     document.getElementById('detailTitle').addEventListener('click', function() {
       const url = document.getElementById('detailDownloadBtn').href;
       if (url && url !== '#') {
@@ -776,17 +775,12 @@
       }
     });
 
-    // ====== GO BACK - UNLIMITED BACK NAVIGATION ======
+    // ====== GO BACK FUNCTION ======
     function goBack() {
-      // Check if overlay is open first
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        return;
-      }
-
       if (historyStack.length > 1) {
-        // Pop the current item and show the previous one
+        // Pop the current (top) item
         historyStack.pop();
+        // Now get the previous item
         const prevGame = historyStack[historyStack.length - 1];
         if (prevGame) {
           showDetail(prevGame, false);
@@ -794,31 +788,28 @@
           goHome();
         }
       } else if (historyStack.length === 1) {
+        // Only one item in stack, go to main grid
         historyStack.pop();
         goHome();
       } else {
+        // Stack empty, go home
         goHome();
       }
     }
 
     function goHome() {
-      historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       document.getElementById('homeNav').classList.add('active');
+      history.pushState(null, null, location.href);
     }
 
-    // ====== BACK BUTTON ======
     backBtn.addEventListener('click', goBack);
 
-    // ====== BROWSER BACK BUTTON ======
+    // Handle browser back/forward
     window.addEventListener('popstate', function(e) {
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        return;
-      }
       if (detailView.style.display === 'block') {
         goBack();
       } else {
@@ -826,10 +817,10 @@
       }
     });
 
-    // ====== INITIAL PUSH STATE TO PREVENT EXIT ======
+    // Initial push state to prevent exit
     history.pushState(null, null, location.href);
 
-    // ====== SHARE BUTTON ======
+    // Share button
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
