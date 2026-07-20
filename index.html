@@ -1,3 +1,4 @@
+9999
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -446,7 +447,6 @@
       disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono Games Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Gambling may be subject to legal restrictions in your region. Play responsibly.' }
     };
 
-    // ====== NAV LINKS - About, Contact, Disclaimer ======
     document.querySelectorAll('.nav-small[data-target]').forEach(el => {
       el.addEventListener('click', function() {
         const key = this.dataset.target;
@@ -460,15 +460,18 @@
       });
     });
 
-    // ====== HOME NAV ======
+    // ====== HOME NAV – Reset History & Go to Main Grid ======
     homeNav.addEventListener('click', function() {
-      // Clear history and go to main grid
+      // Clear history stack
       historyStack = [];
+      // Go to main grid
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
+      // Replace browser history so back from home doesn't go to previous detail
+      history.replaceState(null, '', location.href);
     });
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
@@ -481,7 +484,7 @@
       return num + 'K';
     }
 
-    // ====== HISTORY STACK - supports unlimited back navigation ======
+    // ====== HISTORY STACK ======
     let historyStack = [];
 
     // ====== TOC TOGGLE ======
@@ -492,7 +495,6 @@
       arrow.classList.toggle('open');
     });
 
-    // ====== RENDER MAIN GRID ======
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach(game => {
@@ -575,10 +577,12 @@
       };
     }
 
-    // ====== SHOW DETAIL - PUSH TO HISTORY STACK ======
+    // ====== SHOW DETAIL WITH HISTORY MANAGEMENT ======
     function showDetail(game, pushHistory = true) {
       if (pushHistory) {
+        // Push to stack and browser history
         historyStack.push(game);
+        history.pushState({ game: game.name }, '');
       }
 
       mainGrid.style.display = 'none';
@@ -654,7 +658,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // Populate game tags (clickable for unlimited back navigation)
+      // Populate game tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -681,12 +685,12 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true); // Push to history
+          showDetail(gData, true);
         });
         tagsContainer.appendChild(tag);
       });
       
-      // Related games (clickable for unlimited back navigation)
+      // Related games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -743,13 +747,13 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true); // Push to history
+          showDetail(gData, true);
         });
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ====== MAIN GRID CARD CLICKS ======
+    // Main grid clicks
     document.querySelectorAll('#mainGrid .card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
@@ -763,11 +767,11 @@
           size: this.dataset.size,
           votes: this.dataset.votes
         };
-        showDetail(gData, true); // Push to history
+        showDetail(gData, true);
       });
     });
 
-    // ====== DOWNLOAD TITLE CLICK ======
+    // Click on detail title to download
     document.getElementById('detailTitle').addEventListener('click', function() {
       const url = document.getElementById('detailDownloadBtn').href;
       if (url && url !== '#') {
@@ -775,60 +779,94 @@
       }
     });
 
-    // ====== GO BACK - UNLIMITED BACK NAVIGATION ======
+    // ====== GO BACK FUNCTION (called by back button & popstate) ======
     function goBack() {
-      // Check if overlay is open first
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        return;
-      }
-
       if (historyStack.length > 1) {
-        // Pop the current item and show the previous one
+        // Pop current (top) item
         historyStack.pop();
+        // Get previous game
         const prevGame = historyStack[historyStack.length - 1];
         if (prevGame) {
           showDetail(prevGame, false);
+          // Update browser history to match the previous state
+          history.replaceState({ game: prevGame.name }, '');
         } else {
           goHome();
         }
       } else if (historyStack.length === 1) {
+        // Only one item, pop it and go home
         historyStack.pop();
         goHome();
       } else {
+        // Empty stack, go home
         goHome();
       }
     }
 
     function goHome() {
-      historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       document.getElementById('homeNav').classList.add('active');
+      // Replace history so home becomes the new root
+      history.replaceState(null, '', location.href);
     }
 
-    // ====== BACK BUTTON ======
-    backBtn.addEventListener('click', goBack);
-
-    // ====== BROWSER BACK BUTTON ======
-    window.addEventListener('popstate', function(e) {
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        return;
-      }
+    // Back button click uses history.back() to trigger popstate
+    backBtn.addEventListener('click', function(e) {
+      // If we are in a detail view, go back in history
       if (detailView.style.display === 'block') {
-        goBack();
-      } else {
-        history.pushState(null, null, location.href);
+        if (historyStack.length > 0) {
+          history.back();
+        } else {
+          goHome();
+        }
       }
     });
 
-    // ====== INITIAL PUSH STATE TO PREVENT EXIT ======
-    history.pushState(null, null, location.href);
+    // Handle browser back/forward
+    window.addEventListener('popstate', function(e) {
+      if (detailView.style.display === 'block') {
+        // If we have a state with a game, we can use it to restore
+        if (e.state && e.state.game) {
+          // Find game in uniqueGames
+          const game = uniqueGames.find(g => g.name === e.state.game);
+          if (game) {
+            // But we also need to adjust the stack: we are going back, so pop the stack
+            // However, the popstate is triggered by history.back(), which already changed the browser history.
+            // We need to sync our stack. We'll pop the top if it matches.
+            if (historyStack.length > 0 && historyStack[historyStack.length - 1].name === e.state.game) {
+              // The top already matches, so we just need to show it without pushing.
+              // But we also need to ensure we don't double-show.
+              // Actually, when back is clicked, we should call goBack() which will pop and show previous.
+              // But popstate fires after history.back(), so we should handle it by popping our stack.
+              // Let's just call goBack() which does the proper stack management.
+              goBack();
+            } else {
+              // Mismatch, fallback: try to restore from state
+              // This might happen if user manually typed URL, but we'll handle gracefully.
+              historyStack = [];
+              showDetail(game, false);
+              history.replaceState({ game: game.name }, '');
+            }
+          } else {
+            goHome();
+          }
+        } else {
+          // No state, go back using our stack
+          goBack();
+        }
+      } else {
+        // On main grid, ensure history state is clean
+        history.replaceState(null, '', location.href);
+      }
+    });
 
-    // ====== SHARE BUTTON ======
+    // Initial push state to prevent exit
+    history.pushState(null, '', location.href);
+
+    // Share button
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
