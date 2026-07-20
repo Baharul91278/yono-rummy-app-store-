@@ -1,4 +1,3 @@
-000000p00oooo
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -453,6 +452,7 @@
           overlayTitle.textContent = contentMap[key].title;
           overlayContent.textContent = contentMap[key].text;
           overlay.style.display = 'flex';
+          history.pushState({ modal: true }, '');
         }
         document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
@@ -460,7 +460,11 @@
     });
 
     homeNav.addEventListener('click', function() {
-      // When Home is clicked, clear history and go to main grid
+      // Close overlay if open
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+      }
       historyStack = [];
       detailView.style.display = 'none';
       mainGrid.style.display = 'flex';
@@ -469,8 +473,17 @@
       this.classList.add('active');
     });
 
-    overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
-    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
+    overlayClose.addEventListener('click', function() {
+      overlay.style.display = 'none';
+      history.replaceState({ page: 'main' }, '', window.location.pathname);
+    });
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+      }
+    });
 
     function getRandomRating() { return (4 + Math.random() * 0.8).toFixed(1); }
     function getRandomSize() { return (30 + Math.floor(Math.random() * 40)) + ' MB'; }
@@ -479,10 +492,8 @@
       return num + 'K';
     }
 
-    // ====== HISTORY STACK ======
     let historyStack = [];
 
-    // ====== TOC TOGGLE ======
     document.getElementById('tocToggle').addEventListener('click', function() {
       const body = document.getElementById('tocBody');
       const arrow = document.getElementById('tocArrow');
@@ -540,7 +551,6 @@
     }
     renderGrid();
 
-    // ====== GENERATE UNIQUE BONUSES ======
     function getUniqueBonuses(gameName) {
       const seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       return {
@@ -572,10 +582,8 @@
       };
     }
 
-    // ====== SHOW DETAIL WITH HISTORY MANAGEMENT ======
     function showDetail(game, pushHistory = true) {
       if (pushHistory) {
-        // Push the current game data onto the history stack before showing the new one
         historyStack.push(game);
       }
 
@@ -652,7 +660,6 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // Populate game tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -684,7 +691,6 @@
         tagsContainer.appendChild(tag);
       });
       
-      // Related games
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -765,7 +771,6 @@
       });
     });
 
-    // Click on detail title to download
     document.getElementById('detailTitle').addEventListener('click', function() {
       const url = document.getElementById('detailDownloadBtn').href;
       if (url && url !== '#') {
@@ -773,27 +778,36 @@
       }
     });
 
-    // ====== GO BACK FUNCTION ======
+    // ====== GO BACK: unlimited back, one step at a time ======
     function goBack() {
-      if (historyStack.length > 1) {
-        // Pop the current (top) item
-        historyStack.pop();
-        // Now get the previous item
-        const prevGame = historyStack[historyStack.length - 1];
-        if (prevGame) {
-          showDetail(prevGame, false);
+      // If overlay is open, close it first
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+        return;
+      }
+
+      // If in detail view, go back one step
+      if (detailView.style.display === 'block') {
+        if (historyStack.length > 1) {
+          historyStack.pop();
+          const prevGame = historyStack[historyStack.length - 1];
+          if (prevGame) {
+            showDetail(prevGame, false);
+          } else {
+            goHome();
+          }
+        } else if (historyStack.length === 1) {
+          historyStack.pop();
+          goHome();
         } else {
-          // Should not happen
           goHome();
         }
-      } else if (historyStack.length === 1) {
-        // Only one item in stack, go to main grid
-        historyStack.pop();
-        goHome();
-      } else {
-        // Stack empty, go home
-        goHome();
+        return;
       }
+
+      // On main grid, stay on page
+      history.pushState(null, null, location.href);
     }
 
     function goHome() {
@@ -802,23 +816,33 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
       document.getElementById('homeNav').classList.add('active');
+      history.pushState(null, null, location.href);
     }
 
     backBtn.addEventListener('click', goBack);
 
-    // Handle browser back/forward
+    // ====== POPSTATE: handles browser back button ======
     window.addEventListener('popstate', function(e) {
+      // Priority 1: If overlay is open, close it
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+        return;
+      }
+
+      // Priority 2: If in detail view, go back one step
       if (detailView.style.display === 'block') {
         goBack();
-      } else {
-        history.pushState(null, null, location.href);
+        return;
       }
+
+      // Priority 3: On main grid, stay on page
+      history.pushState(null, null, location.href);
     });
 
     // Initial push state to prevent exit
     history.pushState(null, null, location.href);
 
-    // Share button
     document.getElementById('shareBtn').addEventListener('click', function() {
       if (navigator.share) {
         navigator.share({
