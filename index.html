@@ -84,7 +84,6 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* Offer Tags */
     .tag-section { padding: 12px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
     .tag-grid { display: flex; flex-direction: column; gap: 8px; }
@@ -94,23 +93,28 @@
     .tag-box .tag-content { font-size: 0.75rem; color: #334155; line-height: 1.7; }
     .tag-box .tag-content strong { color: #0b1e33; }
     
-    /* NEW 5 INFO BOXES */
-    .detail-info-boxes { padding: 12px; background: #ffffff; border-top: 1px solid #e9edf4; }
-    .detail-info-boxes .info-box-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
-    .info-box-grid { display: flex; flex-direction: column; gap: 10px; }
-    .info-box-item { background: #f8fafc; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
-    .info-box-item .ib-head { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
-    .info-box-item .ib-content { font-size: 0.75rem; color: #334155; line-height: 1.7; }
-    .info-box-item .ib-content ul { list-style: none; padding: 0; margin: 4px 0 0 0; }
-    .info-box-item .ib-content ul li { padding: 2px 0; font-size: 0.75rem; color: #334155; }
-    .info-box-item .ib-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
-    
     .faq-section { padding: 12px; background: white; border-top: 1px solid #e9edf4; }
     .faq-section .faq-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
     .faq-grid { display: flex; flex-direction: column; gap: 8px; }
     .faq-box { background: #f8fafc; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
     .faq-box .faq-q { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 4px; }
     .faq-box .faq-a { font-size: 0.7rem; color: #334155; line-height: 1.6; }
+    
+    /* ====== TABLE OF CONTENTS (Collapsible) ====== */
+    .toc-section { padding: 12px; background: #f8fafc; border-top: 1px solid #e9edf4; }
+    .toc-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .toc-header .toc-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; }
+    .toc-header .toc-icon { font-size: 1.2rem; transition: transform 0.3s; user-select: none; }
+    .toc-header .toc-icon.open { transform: rotate(90deg); }
+    .toc-body { display: none; margin-top: 10px; flex-direction: column; gap: 8px; }
+    .toc-body.open { display: flex; }
+    .toc-body .toc-item { background: white; border-radius: 12px; padding: 14px 16px; border: 1px solid #e9edf4; }
+    .toc-body .toc-item .toc-subhead { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 4px; }
+    .toc-body .toc-item .toc-content { font-size: 0.75rem; color: #334155; line-height: 1.7; }
+    .toc-body .toc-item .toc-content strong { color: #0b1e33; }
+    .toc-body .toc-item .toc-content ul { list-style: none; padding: 0; margin: 4px 0 0 0; }
+    .toc-body .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.75rem; color: #334155; }
+    .toc-body .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
     
     .info-tags-section { padding: 12px; background: white; border-top: 1px solid #e9edf4; }
     .info-tags-section .info-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
@@ -165,7 +169,7 @@
       .game-detail-title { font-size: 0.5rem; padding: 3px 10px; }
       .tag-box .tag-content { font-size: 0.7rem; }
       .info-tag { font-size: 0.5rem; padding: 3px 8px; }
-      .info-box-item .ib-content { font-size: 0.7rem; }
+      .toc-body .toc-item .toc-content { font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -245,7 +249,7 @@
       </div>
     </div>
     
-    <!-- ====== 5 OFFER TAGS ====== -->
+    <!-- ====== 5 OFFER TAGS with UNIQUE BONUS 20-900 & REFERRAL 5-25 ====== -->
     <div class="tag-section">
       <div class="tag-title" id="tagSectionTitle">📢 Top Offers</div>
       <div class="tag-grid" id="tagGridContainer">
@@ -257,64 +261,6 @@
       </div>
     </div>
     
-    <!-- ====== 5 NEW INFO BOXES (replaces Public Reviews) ====== -->
-    <div class="detail-info-boxes">
-      <div class="info-box-title" id="infoBoxTitle">📌 About <span id="infoBoxGameName">Game Name</span></div>
-      <div class="info-box-grid">
-        <!-- Box 1: Overview -->
-        <div class="info-box-item">
-          <div class="ib-head"><span class="ticon">📱</span> <span id="ib1Title">Game Name</span> – Real Cash Earning App</div>
-          <div class="ib-content" id="ib1Content"><span id="ib1Name">Game Name</span> is a popular real cash earning app in India where users can play games like rummy, slots, bingo, and spin games to win real money. New users can claim a signup bonus of up to ₹<span id="ib1Bonus">75</span>, making it easy to get started and explore the platform. The app offers a smooth and secure experience with fast UPI deposits and withdrawals.<br><br>The interface is simple and user-friendly, making it suitable for both beginners and experienced players. You can enjoy daily rewards, referral bonuses, and special events to increase your earnings. The minimum withdrawal starts from ₹<span id="ib1Withdraw">100</span>, and most transactions are processed quickly without delays.<br><br>If you are looking for a trusted gaming app that combines entertainment with real earning opportunities, <span id="ib1Name2">Game Name</span> is a great choice. Download the latest APK version today and start playing to earn real cash rewards from your mobile.</div>
-        </div>
-        <!-- Box 2: Features & Benefits -->
-        <div class="info-box-item">
-          <div class="ib-head"><span class="ticon">✨</span> <span id="ib2Title">Game Name</span> App Features & Benefits</div>
-          <div class="ib-content" id="ib2Content">
-            <ul>
-              <li><strong>Welcome Bonus:</strong> Get up to ₹<span id="ib2Bonus">75</span> signup bonus for new users</li>
-              <li><strong>Fast UPI Withdrawal:</strong> Withdraw starting from ₹<span id="ib2Withdraw">100</span> directly to your bank account</li>
-              <li><strong>Popular Games:</strong> Play rummy, slots, bingo, spin games and more real cash earning options</li>
-              <li><strong>Safe & Secure Platform:</strong> Smooth gameplay experience with secure transactions</li>
-              <li><strong>Daily Rewards & Offers:</strong> Earn extra bonuses, cashback and referral rewards regularly</li>
-              <li><strong>User-Friendly Interface:</strong> Easy to use app suitable for beginners and experienced players</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Box 3: How to Download & Install -->
-        <div class="info-box-item">
-          <div class="ib-head"><span class="ticon">📥</span> How to Download & Install <span id="ib3Title">Game Name</span></div>
-          <div class="ib-content" id="ib3Content">
-            <ol style="padding-left:20px; margin:0;">
-              <li>Tap the big <strong>Download</strong> button above</li>
-              <li>Allow installation from unknown sources</li>
-              <li>Open the downloaded APK and tap <strong>Install</strong></li>
-              <li>Register with your mobile number</li>
-              <li>Claim your signup bonus instantly</li>
-            </ol>
-          </div>
-        </div>
-        <!-- Box 4: Safety & Security -->
-        <div class="info-box-item">
-          <div class="ib-head"><span class="ticon">🔒</span> <span id="ib4Title">Game Name</span> Safety & Security</div>
-          <div class="ib-content" id="ib4Content"><span id="ib4Name">Game Name</span> is designed to provide a secure and reliable gaming experience. The app uses standard encryption and protected payment systems to help keep user data and transactions safe.<br><br>Deposits and withdrawals are processed through commonly used methods such as UPI and bank transfer, offering a convenient experience for users in India. However, users are advised to play responsibly and review the app’s terms and policies before using it.</div>
-        </div>
-        <!-- Box 5: Why Choose -->
-        <div class="info-box-item">
-          <div class="ib-head"><span class="ticon">🏆</span> Why Choose <span id="ib5Title">Game Name</span> App?</div>
-          <div class="ib-content" id="ib5Content">
-            <ul>
-              <li>Attractive welcome bonus of up to ₹<span id="ib5Bonus">75</span> for new users</li>
-              <li>Fast UPI withdrawal system with quick processing time</li>
-              <li>Wide range of games including rummy, slots, bingo and spin games</li>
-              <li>Smooth and optimized performance on most Android devices</li>
-              <li>Regular updates with new features, offers and improvements</li>
-              <li>Simple and user-friendly interface for beginners and regular players</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <!-- ====== FAQ SECTION ====== -->
     <div class="faq-section">
       <div class="faq-title">❓ Frequently Asked Questions</div>
@@ -323,6 +269,69 @@
         <div class="faq-box"><div class="faq-q">2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?</div><div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div></div>
         <div class="faq-box"><div class="faq-q">3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?</div><div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div></div>
         <div class="faq-box"><div class="faq-q">4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?</div><div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div></div>
+      </div>
+    </div>
+    
+    <!-- ====== TABLE OF CONTENTS (Collapsible with 5 tags) ====== -->
+    <div class="toc-section">
+      <div class="toc-header" id="tocToggle">
+        <span class="toc-title">📑 Table of Contents</span>
+        <span class="toc-icon" id="tocIcon">▶</span>
+      </div>
+      <div class="toc-body" id="tocBody">
+        <!-- 5 items will be populated by JS with game-specific content -->
+        <div class="toc-item">
+          <div class="toc-subhead">1. <span id="toc1Title">Game Name</span> Overview</div>
+          <div class="toc-content" id="toc1Content">
+            <span id="toc1Name">Game Name</span> is a popular real cash earning app in India where users can play games like rummy, slots, bingo, and spin games to win real money. New users can claim a signup bonus of up to ₹<span id="toc1Bonus">75</span>, making it easy to get started and explore the platform. The app offers a smooth and secure experience with fast UPI deposits and withdrawals.<br><br>
+            The interface of <span id="toc1Name2">Game Name</span> is simple and user-friendly, making it suitable for both beginners and experienced players. You can enjoy daily rewards, referral bonuses, and special events to increase your earnings. The minimum withdrawal starts from ₹<span id="toc1Withdraw">100</span>, and most transactions are processed quickly without delays.<br><br>
+            If you are looking for a trusted gaming app that combines entertainment with real earning opportunities, <span id="toc1Name3">Game Name</span> is a great choice. Download the latest APK version today and start playing to earn real cash rewards from your mobile.
+          </div>
+        </div>
+        <div class="toc-item">
+          <div class="toc-subhead">2. <span id="toc2Title">Game Name</span> App Features & Benefits</div>
+          <div class="toc-content" id="toc2Content">
+            <ul>
+              <li><strong>Welcome Bonus:</strong> Get up to ₹<span id="toc2Bonus">75</span> signup bonus for new users</li>
+              <li><strong>Fast UPI Withdrawal:</strong> Withdraw starting from ₹<span id="toc2Withdraw">100</span> directly to your bank account</li>
+              <li><strong>Popular Games:</strong> Play rummy, slots, bingo, spin games and more real cash earning options</li>
+              <li><strong>Safe & Secure Platform:</strong> Smooth gameplay experience with secure transactions</li>
+              <li><strong>Daily Rewards & Offers:</strong> Earn extra bonuses, cashback and referral rewards regularly</li>
+              <li><strong>User-Friendly Interface:</strong> Easy to use app suitable for beginners and experienced players</li>
+            </ul>
+          </div>
+        </div>
+        <div class="toc-item">
+          <div class="toc-subhead">3. How to Download & Install <span id="toc3Title">Game Name</span></div>
+          <div class="toc-content" id="toc3Content">
+            <strong>Follow these simple steps:</strong><br>
+            <strong>•</strong> Tap the big Download button above<br>
+            <strong>•</strong> Allow installation from unknown sources<br>
+            <strong>•</strong> Open the downloaded APK and tap Install<br>
+            <strong>•</strong> Register with your mobile number<br>
+            <strong>•</strong> Claim your signup bonus instantly
+          </div>
+        </div>
+        <div class="toc-item">
+          <div class="toc-subhead">4. <span id="toc4Title">Game Name</span> Safety & Security</div>
+          <div class="toc-content" id="toc4Content">
+            <span id="toc4Name">Game Name</span> is designed to provide a secure and reliable gaming experience. The app uses standard encryption and protected payment systems to help keep user data and transactions safe.<br><br>
+            Deposits and withdrawals are processed through commonly used methods such as UPI and bank transfer, offering a convenient experience for users in India. However, users are advised to play responsibly and review the app’s terms and policies before using it.
+          </div>
+        </div>
+        <div class="toc-item">
+          <div class="toc-subhead">5. Why Choose <span id="toc5Title">Game Name</span> App?</div>
+          <div class="toc-content" id="toc5Content">
+            <ul>
+              <li>Attractive welcome bonus of up to ₹<span id="toc5Bonus">75</span> for new users</li>
+              <li>Fast UPI withdrawal system with quick processing time</li>
+              <li>Wide range of games including rummy, slots, bingo and spin games</li>
+              <li>Smooth and optimized performance on most Android devices</li>
+              <li>Regular updates with new features, offers and improvements</li>
+              <li>Simple and user-friendly interface for beginners and regular players</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -537,12 +546,8 @@
         refFaq1: 5 + (seed * 7) % 20,
         refFaq2: 5 + (seed * 8) % 20,
         refFaq4: 5 + (seed * 9) % 20,
-        // New info boxes bonuses (50-100 for welcome, 100-200 for withdrawal)
-        ibBonus: 50 + (seed * 3) % 50,
-        ibWithdraw: 100 + (seed * 7) % 100,
-        ibBonus2: 50 + (seed * 5) % 50,
-        ibWithdraw2: 100 + (seed * 9) % 100,
-        ibBonus5: 50 + (seed * 11) % 50
+        tocBonus: 20 + (seed * 13) % 80,  // up to ₹75
+        tocWithdraw: 20 + (seed * 17) % 80 // up to ₹100
       };
     }
 
@@ -565,7 +570,6 @@
       const gName = game.name;
       const b = getUniqueBonuses(gName);
       
-      // Offer tags
       document.getElementById('tagSectionTitle').textContent = '📢 ' + gName + ' – Top Offers';
       document.getElementById('tag1Title').textContent = gName;
       document.getElementById('tag1Bonus').textContent = b.tag1;
@@ -584,7 +588,6 @@
       document.getElementById('tag5Bonus').textContent = b.tag5;
       document.getElementById('tag5Ref').textContent = b.ref5;
       
-      // FAQ
       document.getElementById('faq1Name').textContent = gName;
       document.getElementById('faq1Name2').textContent = gName;
       document.getElementById('faq1Name3').textContent = gName;
@@ -604,34 +607,28 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
       
-      // ====== NEW INFO BOXES ======
-      document.getElementById('infoBoxGameName').textContent = gName;
-      document.getElementById('infoBoxTitle').textContent = '📌 About ' + gName;
+      // ====== POPULATE TABLE OF CONTENTS ======
+      const tocBonus = b.tocBonus;
+      const tocWithdraw = b.tocWithdraw;
+      document.getElementById('toc1Title').textContent = gName;
+      document.getElementById('toc1Name').textContent = gName;
+      document.getElementById('toc1Name2').textContent = gName;
+      document.getElementById('toc1Name3').textContent = gName;
+      document.getElementById('toc1Bonus').textContent = tocBonus;
+      document.getElementById('toc1Withdraw').textContent = tocWithdraw;
       
-      // Box 1
-      document.getElementById('ib1Title').textContent = gName + ' – Real Cash Earning App';
-      document.getElementById('ib1Name').textContent = gName;
-      document.getElementById('ib1Bonus').textContent = b.ibBonus;
-      document.getElementById('ib1Withdraw').textContent = b.ibWithdraw;
-      document.getElementById('ib1Name2').textContent = gName;
+      document.getElementById('toc2Title').textContent = gName;
+      document.getElementById('toc2Bonus').textContent = tocBonus;
+      document.getElementById('toc2Withdraw').textContent = tocWithdraw;
       
-      // Box 2
-      document.getElementById('ib2Title').textContent = gName + ' App Features & Benefits';
-      document.getElementById('ib2Bonus').textContent = b.ibBonus2;
-      document.getElementById('ib2Withdraw').textContent = b.ibWithdraw2;
+      document.getElementById('toc3Title').textContent = gName;
       
-      // Box 3
-      document.getElementById('ib3Title').textContent = gName;
+      document.getElementById('toc4Title').textContent = gName;
+      document.getElementById('toc4Name').textContent = gName;
       
-      // Box 4
-      document.getElementById('ib4Title').textContent = gName + ' Safety & Security';
-      document.getElementById('ib4Name').textContent = gName;
+      document.getElementById('toc5Title').textContent = gName;
+      document.getElementById('toc5Bonus').textContent = tocBonus;
       
-      // Box 5
-      document.getElementById('ib5Title').textContent = gName;
-      document.getElementById('ib5Bonus').textContent = b.ibBonus5;
-      
-      // Info tags
       const tagsGrid = document.getElementById('infoTagsGrid');
       tagsGrid.innerHTML = '';
       const shuffledTags = [...infoTagsList].sort(() => Math.random() - 0.5);
@@ -642,7 +639,6 @@
         tagsGrid.appendChild(span);
       });
       
-      // Related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       const others = uniqueGames.filter(g => g.name !== game.name);
@@ -773,6 +769,14 @@
           prompt('Copy this link to share:', url);
         });
       }
+    });
+
+    // ====== TABLE OF CONTENTS TOGGLE ======
+    document.getElementById('tocToggle').addEventListener('click', function() {
+      const body = document.getElementById('tocBody');
+      const icon = document.getElementById('tocIcon');
+      body.classList.toggle('open');
+      icon.textContent = body.classList.contains('open') ? '▼' : '▶';
     });
 
   })();
