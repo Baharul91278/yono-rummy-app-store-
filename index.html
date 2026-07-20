@@ -84,7 +84,7 @@
     .detail-download .download-btn { background: #0a0a0a; color: white; border: none; padding: 10px 24px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; width: 100%; cursor: pointer; text-align: center; display: block; text-decoration: none; letter-spacing: 0.5px; }
     .detail-download .download-btn:active { transform: scale(0.97); }
     
-    /* ====== NEW TAG BOXES - 5 BOXES FOR ABC RUMMY ====== */
+    /* ====== 5 TAG BOXES - DYNAMIC GAME NAME ====== */
     .tag-section { padding: 12px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.9rem; color: #0b1e33; margin-bottom: 10px; }
     .tag-grid { display: flex; flex-direction: column; gap: 8px; }
@@ -232,45 +232,45 @@
       </div>
     </div>
     
-    <!-- ====== 5 ABC RUMMY TAG BOXES ====== -->
+    <!-- ====== 5 TAG BOXES - DYNAMIC GAME NAME & BONUS ====== -->
     <div class="tag-section">
-      <div class="tag-title">📢 ABC Rummy – Top Offers</div>
-      <div class="tag-grid">
+      <div class="tag-title" id="tagSectionTitle">📢 Top Offers</div>
+      <div class="tag-grid" id="tagGridContainer">
         <div class="tag-box">
-          <div class="tag-head"><span class="ticon">🏆</span> ABC Rummy APK Download – Get ₹150 Instant Bonus!</div>
-          <div class="tag-content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today!</div>
+          <div class="tag-head"><span class="ticon">🏆</span> <span id="tag1Title">Game Name</span> APK Download – Get ₹150 Instant Bonus!</div>
+          <div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today!</div>
         </div>
         <div class="tag-box">
-          <div class="tag-head"><span class="ticon">💰</span> Unlock ₹500 Bonus in ABC Rummy Game App!</div>
-          <div class="tag-content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now!</div>
+          <div class="tag-head"><span class="ticon">💰</span> Unlock ₹500 Bonus in <span id="tag2Title">Game Name</span> App!</div>
+          <div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now!</div>
         </div>
         <div class="tag-box">
-          <div class="tag-head"><span class="ticon">🎁</span> ABC Rummy 777 – Signup for ₹35-₹150 Free Bonus</div>
-          <div class="tag-content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily!</div>
+          <div class="tag-head"><span class="ticon">🎁</span> <span id="tag3Title">Game Name</span> – Signup for ₹35-₹150 Free Bonus</div>
+          <div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily!</div>
         </div>
         <div class="tag-box">
-          <div class="tag-head"><span class="ticon">🎰</span> Experience ABC Rummy – ₹50 Welcome Bonus on Download</div>
-          <div class="tag-content">Build sequences with letters A-Z, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today!</div>
+          <div class="tag-head"><span class="ticon">🎰</span> Experience <span id="tag4Title">Game Name</span> – ₹50 Welcome Bonus on Download</div>
+          <div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today!</div>
         </div>
         <div class="tag-box">
-          <div class="tag-head"><span class="ticon">🇮🇳</span> Dive into ABC Rummy – India’s Top Online Gaming App</div>
-          <div class="tag-content">Get ₹51 signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now!</div>
+          <div class="tag-head"><span class="ticon">🇮🇳</span> Dive into <span id="tag5Title">Game Name</span> – India’s Top Online Gaming App</div>
+          <div class="tag-content" id="tag5Content">Get ₹51 signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now!</div>
         </div>
       </div>
     </div>
     
     <!-- ====== 4 FAQ BOXES ====== -->
     <div class="faq-section">
-      <div class="faq-title">❓ Frequently Asked Questions – ABC Rummy</div>
+      <div class="faq-title">❓ Frequently Asked Questions</div>
       <div class="faq-grid">
         <div class="faq-box">
-          <div class="faq-q">1. What Is The ABC Rummy app APK?</div>
-          <div class="faq-a">The Abc Rummy APP APK is an excellent application that offers users a sign-up bonus of ₹700 when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, Abc Rummy APK is a popular slots game with a minimum withdrawal amount of ₹100.</div>
+          <div class="faq-q">1. What Is The <span id="faq1Name">Game Name</span> app APK?</div>
+          <div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹700 when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100.</div>
         </div>
         <div class="faq-box">
-          <div class="faq-q">2. How to Sign Up for ABC Rummy APK?</div>
-          <div class="faq-a">To sign up for the Abc Rummy APK, follow these steps:<br>
-          <strong>•</strong> Click on the Download Button for the Abc Rummy APK.<br>
+          <div class="faq-q">2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?</div>
+          <div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br>
+          <strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br>
           <strong>•</strong> Select OK to start the download.<br>
           <strong>•</strong> Install the App application on your smartphone.<br>
           <strong>•</strong> Open the new app and click on Play as Guest.<br>
@@ -278,12 +278,12 @@
           After completing these steps, you will receive a sign-up bonus of ₹500.</div>
         </div>
         <div class="faq-box">
-          <div class="faq-q">3. How Many Games Are Available In The ABC Rummy Yono App?</div>
-          <div class="faq-a">The Abc Rummy app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div>
+          <div class="faq-q">3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?</div>
+          <div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div>
         </div>
         <div class="faq-box">
-          <div class="faq-q">4. What are some of the best features of the ABC Rummy app APK?</div>
-          <div class="faq-a">
+          <div class="faq-q">4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?</div>
+          <div class="faq-a" id="faq4Content">
             <strong>•</strong> Enjoy a bonus of ₹51 for free in the APK.<br>
             <strong>•</strong> Access to 20 gaming options.<br>
             <strong>•</strong> Earn up to ₹150 for inviting friends.<br>
@@ -316,7 +316,7 @@
 
 <script>
   (function() {
-    // ====== ALL GAMES LIST with UNIQUE BONUSES ======
+    // ====== ALL GAMES LIST ======
     const games = [
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg" },
@@ -482,6 +482,26 @@
       document.getElementById('detailSize').textContent = '📦 ' + (game.size || '45 MB');
       document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '12.8K');
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
+      
+      // ====== UPDATE ALL TAGS WITH GAME NAME ======
+      const gName = game.name;
+      document.getElementById('tagSectionTitle').textContent = '📢 ' + gName + ' – Top Offers';
+      document.getElementById('tag1Title').textContent = gName;
+      document.getElementById('tag2Title').textContent = gName;
+      document.getElementById('tag3Title').textContent = gName;
+      document.getElementById('tag4Title').textContent = gName;
+      document.getElementById('tag5Title').textContent = gName;
+      
+      // Update FAQ with game name
+      document.getElementById('faq1Name').textContent = gName;
+      document.getElementById('faq1Name2').textContent = gName;
+      document.getElementById('faq1Name3').textContent = gName;
+      document.getElementById('faq2Name').textContent = gName;
+      document.getElementById('faq2Name2').textContent = gName;
+      document.getElementById('faq2Name3').textContent = gName;
+      document.getElementById('faq3Name').textContent = gName;
+      document.getElementById('faq3Name2').textContent = gName;
+      document.getElementById('faq4Name').textContent = gName;
       
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
