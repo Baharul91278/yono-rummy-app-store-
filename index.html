@@ -46,6 +46,9 @@
     .share-btn { background: #1e293b; color: white; border: none; padding: 4px 12px; border-radius: 40px; font-weight: 600; font-size: 0.55rem; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: 0.15s; }
     .share-btn:active { transform: scale(0.95); }
     .share-btn svg { width: 14px; height: 14px; fill: white; }
+    .telegram-btn { display: inline-block; width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.15s; flex-shrink: 0; }
+    .telegram-btn:active { transform: scale(0.95); }
+    .telegram-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
     
     .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 8px 0; overflow: hidden; border-bottom: 2px solid #e9edf4; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1); }
     .marquee-container marquee { color: #ffffff; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
@@ -177,6 +180,7 @@
       .header-right .domain-name { font-size: 0.5rem; padding: 2px 6px; }
       .share-btn { font-size: 0.45rem; padding: 3px 8px; }
       .share-btn svg { width: 12px; height: 12px; }
+      .telegram-btn { width: 28px; height: 28px; }
       .nav-small { font-size: 0.45rem; padding: 2px 6px; }
       .detail-img { width: 60px; height: 60px; }
       .detail-info .game-name { font-size: 1rem; }
@@ -202,6 +206,9 @@
     </div>
     <div class="header-right">
       <span class="domain-name">AllYonoGamesSite.com</span>
+      <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+        <img src="https://i.ibb.co/Wp3zwWc3/telegram-icon.jpg" alt="Telegram">
+      </a>
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
         Share
@@ -216,7 +223,7 @@
       <span>🎰 567 Slots</span><span>🎰 Saga Slots</span><span>🎰 Jaiho 91</span>
       <span>🃏 Rummy Ludo</span><span>🃏 ABC Rummy</span><span>🃏 Rummy 91</span>
       <span>🃏 Love Rummy</span><span>🎰 Spin Crush</span><span>🃏 Top Rummy</span>
-      <span>🃏 Hello Rummy</span><span>🃏 Rummy 365</span><span>🃏 Teen Patti Gold</span>
+      <span>🃏 Rummy 365</span><span>🃏 Teen Patti Gold</span>
       <span>🃏 Teen Patti Master</span><span>🃏 Yono Rummy</span><span>🎰 Slots Winner</span>
       <span>🎰 Good Slots</span><span>🎰 Diwa Slot</span><span>🃏 GoGo Rummy</span>
       <span>🃏 Joy Rummy</span><span>🎰 Spin Gold</span><span>🎰 Bingo 101</span>
@@ -382,7 +389,7 @@
 
 <script>
   (function() {
-    // ====== ALL GAMES LIST ======
+    // ====== ALL GAMES LIST (Hello Rummy removed) ======
     const games = [
       { name: "All Yono Games Site", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -394,7 +401,6 @@
       { name: "Love Rummy", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg" },
       { name: "Spin Crush", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg" },
       { name: "Top Rummy", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg" },
-      { name: "Hello Rummy", bonus: "₹34", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/27DSP5zR/1000022725.jpg" },
       { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg" },
       { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" },
       { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" },
